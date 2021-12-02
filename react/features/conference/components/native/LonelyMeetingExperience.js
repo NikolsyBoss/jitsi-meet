@@ -83,7 +83,7 @@ class LonelyMeetingExperience extends PureComponent<Props> {
         if (!_isLonelyMeeting) {
             return null;
         }
-
+//err
         return (
             <View style = { styles.lonelyMeetingContainer }>
                 <Text
@@ -100,10 +100,6 @@ class LonelyMeetingExperience extends PureComponent<Props> {
                             styles.lonelyButton,
                             _styles.lonelyButton
                         ] }>
-                        <Icon
-                            size = { 24 }
-                            src = { IconAddPeople }
-                            style = { styles.lonelyButtonComponents } />
                         <Text
                             style = { [
                                 styles.lonelyButtonComponents,

@@ -135,28 +135,15 @@ class OverflowMenu extends PureComponent<Props, State> {
         return (
             <BottomSheet
                 onCancel = { this._onCancel }
-                renderFooter = { _reactionsEnabled && !toolbarButtons.has('raisehand')
+                renderFooter = { false && !toolbarButtons.has('raisehand')
                     ? this._renderReactionMenu
-                    : null }>
+                    : null }>        
                 <AudioRouteButton { ...topButtonProps } />
                 <ParticipantsPaneButton { ...buttonProps } />
                 <AudioOnlyButton { ...buttonProps } />
-                {!_reactionsEnabled && !toolbarButtons.has('raisehand') && <RaiseHandButton { ...buttonProps } />}
                 <Divider style = { styles.divider } />
-                <SecurityDialogButton { ...buttonProps } />
-                <RecordButton { ...buttonProps } />
-                <LiveStreamButton { ...buttonProps } />
                 <MuteEveryoneButton { ...buttonProps } />
                 <MuteEveryonesVideoButton { ...buttonProps } />
-                <Divider style = { styles.divider } />
-                <SharedVideoButton { ...buttonProps } />
-                <ScreenSharingButton { ...buttonProps } />
-                {!toolbarButtons.has('togglecamera') && <ToggleCameraButton { ...buttonProps } />}
-                {!toolbarButtons.has('tileview') && <TileViewButton { ...buttonProps } />}
-                <Divider style = { styles.divider } />
-                <ClosedCaptionButton { ...buttonProps } />
-                <SharedDocumentButton { ...buttonProps } />
-                <HelpButton { ...buttonProps } />
             </BottomSheet>
         );
     }

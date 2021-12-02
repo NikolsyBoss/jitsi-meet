@@ -203,7 +203,7 @@ ColorSchemeRegistry.register('BottomSheet', {
      * Bottom sheet's base style.
      */
     sheet: {
-        backgroundColor: BaseTheme.palette.ui02,
+        backgroundColor: 'rgba(0,0,0,0.5)',
         borderTopLeftRadius: 16,
         borderTopRightRadius: 16
     },
@@ -212,14 +212,14 @@ ColorSchemeRegistry.register('BottomSheet', {
      * Bottom sheet's base style with header.
      */
     sheetHeader: {
-        backgroundColor: BaseTheme.palette.ui02
+        backgroundColor: 'rgba(0,0,0,0.5)',
     },
 
     /**
      * Bottom sheet's background color with footer.
      */
     sheetFooter: {
-        backgroundColor: BaseTheme.palette.bottomSheet
+        backgroundColor: 'rgba(0,0,0,0.5)',
     }
 });
 

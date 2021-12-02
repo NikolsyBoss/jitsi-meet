@@ -90,7 +90,7 @@ function Toolbox(props: Props) {
                           toggledStyles = { backgroundToggledStyle } />
                 }
 
-                { additionalButtons.has('raisehand') && (_reactionsEnabled
+                {/* { additionalButtons.has('raisehand') && (_reactionsEnabled
                     ? <ReactionsMenuButton
                         styles = { buttonStylesBorderless }
                         toggledStyles = { backgroundToggledStyle } />
@@ -105,12 +105,12 @@ function Toolbox(props: Props) {
                 {additionalButtons.has('togglecamera')
                       && <ToggleCameraButton
                           styles = { buttonStylesBorderless }
-                          toggledStyles = { backgroundToggledStyle } />}
+                          toggledStyles = { backgroundToggledStyle } />} */}
                 <OverflowMenuButton
                     styles = { buttonStylesBorderless }
                     toggledStyles = { toggledButtonStyles } />
                 <HangupButton
-                    styles = { hangupButtonStyles } />
+                    styles = {[hangupButtonStyles, { borderRadius: 50, backgroundColor: '#FF3636', }]} />
             </SafeAreaView>
         </View>
     );

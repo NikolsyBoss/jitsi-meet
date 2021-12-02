@@ -111,7 +111,8 @@ export default createStyleSheet({
         iconStyle: _icon,
         style: {
             ..._responseButton,
-            backgroundColor: ColorPalette.red
+            backgroundColor: ColorPalette.red, // FIXME: commentor
+            borderRadius: 50
         },
         underlayColor: ColorPalette.buttonUnderlay
     },

@@ -173,11 +173,11 @@ export default function Icon(props: Props) {
             role = { role }
             style = { restStyle }
             tabIndex = { tabIndex }>
-            <IconComponent
-                fill = { calculatedColor }
-                height = { calculatedSize }
-                id = { id }
-                width = { calculatedSize } />
+                <IconComponent
+                    fill = { calculatedColor }
+                    height = { calculatedSize }
+                    id = { id }
+                    width = { calculatedSize } />
         </Container>
     );
 }

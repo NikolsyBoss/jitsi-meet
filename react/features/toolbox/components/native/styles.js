@@ -37,7 +37,7 @@ const toolbarButtonIcon = {
  */
 const whiteToolbarButtonIcon = {
     ...toolbarButtonIcon,
-    color: ColorPalette.white
+    color: 'rgba(0,0,0,0)',
 };
 
 /**
@@ -87,9 +87,9 @@ const styles = {
         borderTopRightRadius: 3,
         flexDirection: 'row',
         flexGrow: 0,
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         paddingHorizontal: BoxModel.margin,
-        paddingVertical: 8
+        paddingVertical: 8,
     },
 
     /**

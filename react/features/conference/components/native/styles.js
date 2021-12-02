@@ -43,27 +43,24 @@ export default {
     },
 
     inviteButtonContainer: {
-        position: 'absolute',
-        top: 0,
-        right: 0,
-        zIndex: 1
+        zIndex: 1,
+        paddingRight: 15
     },
-
     inviteButton: {
         iconStyle: {
-            padding: 10,
             color: BaseTheme.palette.icon01,
             fontSize: NAVBAR_BUTTON_SIZE
         },
-        underlayColor: BaseTheme.spacing.underlay01
+        underlayColor: BaseTheme.spacing.underlay01,
     },
 
     lonelyButton: {
         alignItems: 'center',
-        borderRadius: 24,
+        borderRadius: 6,
+        width: '90%',
         flexDirection: 'row',
         height: BaseTheme.spacing[6],
-        justifyContent: 'space-around',
+        justifyContent: 'center',
         paddingHorizontal: 12
     },
 
@@ -74,6 +71,11 @@ export default {
     lonelyMeetingContainer: {
         alignSelf: 'stretch',
         alignItems: 'center',
+        backgroundColor: 'rgba(0,0,0,0.4)',
+        height: 120,
+        marginLeft: '5%',
+        marginRight: '5%',
+        marginBottom: 10,
         padding: BoxModel.padding * 2
     },
 
@@ -100,8 +102,8 @@ export default {
     navBarSafeView: {
         left: 0,
         position: 'absolute',
-        right: 0,
-        top: 0
+        right: 10,
+        top: 20
     },
 
     navBarWrapper: {
@@ -109,7 +111,7 @@ export default {
         flex: 1,
         flexDirection: 'row',
         height: 44,
-        justifyContent: 'center',
+        justifyContent: 'space-around',
         paddingHorizontal: 14
     },
 
@@ -124,7 +126,7 @@ export default {
         backgroundColor: 'rgba(0,0,0,0.8)',
         borderBottomRightRadius: 3,
         borderTopRightRadius: 3,
-        height: 28,
+        height: 40,
         justifyContent: 'center',
         minWidth: 50
     },
@@ -140,9 +142,11 @@ export default {
         borderBottomLeftRadius: 3,
         borderTopLeftRadius: 3,
         flexShrink: 1,
-        height: 28,
+        height: 40,
+        width: "85%",
         justifyContent: 'center',
-        paddingHorizontal: 10
+        paddingHorizontal: 10,
+        marginLeft: 25
     },
 
     roomNameWrapper: {
@@ -160,6 +164,7 @@ export default {
         flexDirection: 'column',
         justifyContent: 'flex-end',
         left: 0,
+        opacity: 0.7,
         position: 'absolute',
         right: 0,
         top: 0

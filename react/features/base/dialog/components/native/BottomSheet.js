@@ -157,7 +157,7 @@ class BottomSheet extends PureComponent<Props> {
                             showsVerticalScrollIndicator = { false }
                             style = { [
                                 renderFooter && _styles.sheet,
-                                addScrollViewPadding && styles.scrollView
+                                addScrollViewPadding && styles.scrollView,
                             ] } >
                             { this.props.children }
                         </ScrollView>
