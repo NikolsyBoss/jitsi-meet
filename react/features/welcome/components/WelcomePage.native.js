@@ -1,24 +1,25 @@
 // @flow
 
-import { DrawerActions } from '@react-navigation/native';
+import {DrawerActions} from '@react-navigation/native';
 import React from 'react';
 import {
     Animated,
-    SafeAreaView,
+    SafeAreaView, StatusBar,
     TextInput,
     TouchableHighlight,
     TouchableOpacity,
-    View
+    View,
 } from 'react-native';
 
-import { getName } from '../../app/functions';
-import { ColorSchemeRegistry } from '../../base/color-scheme';
-import { translate } from '../../base/i18n';
-import { Icon, IconMenu, IconWarning } from '../../base/icons';
-import { MEDIA_TYPE } from '../../base/media';
+import {getName} from '../../app/functions';
+import {ColorSchemeRegistry} from '../../base/color-scheme';
+import {translate} from '../../base/i18n';
+import {Icon, IconMenu, IconWarning,} from '../../base/icons';
+
+import {MEDIA_TYPE} from '../../base/media';
 import JitsiStatusBar from '../../base/modal/components/JitsiStatusBar';
-import { LoadingIndicator, Text } from '../../base/react';
-import { connect } from '../../base/redux';
+import {LoadingIndicator, Text} from '../../base/react';
+import {connect} from '../../base/redux';
 import {
     createDesiredLocalTracks,
     destroyLocalDesktopTrackIfExists,
@@ -33,7 +34,11 @@ import {
 } from './AbstractWelcomePage';
 import VideoSwitch from './VideoSwitch';
 import WelcomePageTabs from './WelcomePageTabs';
-import styles, { PLACEHOLDER_TEXT_COLOR } from './styles';
+import styles, {PLACEHOLDER_TEXT_COLOR} from './styles';
+import {ViewStyle} from "react-native";
+
+import SettingMenuButton
+    from "../../toolbox/components/native/SettingMenuButton";
 
 
 type Props = AbstractProps & {
@@ -48,6 +53,10 @@ type Props = AbstractProps & {
      */
     navigation: Object,
 
+    /**
+     * The redux {@code dispatch} function.
+     */
+    dispatch: Function,
     /**
      * Default prop for navigating between screen components(React Navigation).
      */
@@ -65,6 +74,7 @@ type Props = AbstractProps & {
  * @augments AbstractWelcomePage
  */
 class WelcomePage extends AbstractWelcomePage<*> {
+
     /**
      * Constructor of the Component.
      *
@@ -97,6 +107,22 @@ class WelcomePage extends AbstractWelcomePage<*> {
     _onRoomChange: (string) => void;
 
     _updateRoomname: () => void;
+    sha256 = async (message) => {
+
+        // encode as UTF-8
+        const msgBuffer = new TextEncoder('utf-8').encode(message);
+
+        // hash the message
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+
+        // convert ArrayBuffer to Array
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+        // convert bytes to hex string
+        const hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+        return hashHex;
+    }
+
 
     /**
      * Implements React's {@link Component#componentDidMount()}. Invoked
@@ -106,8 +132,12 @@ class WelcomePage extends AbstractWelcomePage<*> {
      * @inheritdoc
      * @returns {void}
      */
+
+
     componentDidMount() {
         super.componentDidMount();
+        let randomStr = (Math.random() + 1).toString(36).substring(1);
+        this.sha256(randomStr).then(hash => this.setState({room: hash}));
 
         this._updateRoomname();
 
@@ -117,25 +147,29 @@ class WelcomePage extends AbstractWelcomePage<*> {
             navigation
         } = this.props;
 
-        navigation.setOptions({
-            headerLeft: () => (
-                <TouchableOpacity
-                    /* eslint-disable-next-line react/jsx-no-bind */
-                    onPress = { () =>
-                        navigation.dispatch(DrawerActions.openDrawer()) }
-                    style = { styles.drawerNavigationIcon }>
-                    <Icon
-                        size = { 20 }
-                        src = { IconMenu }
-                        style = { _headerStyles.headerButtonIcon } />
-                </TouchableOpacity>
-            ),
-            // eslint-disable-next-line react/no-multi-comp
-            headerRight: () =>
-                <VideoSwitch />
-        });
-
-        if (this.props._settings.startAudioOnly) {
+        // navigation.setOptions({
+        //     headerLeft: () => (
+        //         <TouchableOpacity
+        //             /* eslint-disable-next-line react/jsx-no-bind */
+        //             // onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+        //             onPress={() => null}
+        //             style={{paddingHorizontal: 20}}
+        //             // style={styles.drawerNavigationIcon}
+        //         >
+        //             <Icon
+        //                 size={30}
+        //                 src={gearIcon}
+        //                 // style={_headerStyles.headerButtonIcon}
+        //             />
+        //         </TouchableOpacity>
+        //     ),
+        //     // eslint-disable-next-line react/no-multi-comp
+        //     headerRight: () =>
+        //         <View style={{paddingHorizontal: 20}}>
+        //             <VideoSwitch/>
+        //         </View>
+        // });
+        if (!this.props._settings.startAudioOnly) {
             dispatch(destroyLocalTracks());
         } else {
             dispatch(destroyLocalDesktopTrackIfExists());
@@ -143,9 +177,9 @@ class WelcomePage extends AbstractWelcomePage<*> {
             // Make sure we don't request the permission for the camera from
             // the start. We will, however, create a video track iff the user
             // already granted the permission.
-            navigator.permissions.query({ name: 'camera' }).then(response => {
+            navigator.permissions.query({name: 'camera'}).then(response => {
                 response === 'granted'
-                    && dispatch(createDesiredLocalTracks(MEDIA_TYPE.VIDEO));
+                && dispatch(createDesiredLocalTracks(MEDIA_TYPE.VIDEO));
             });
         }
     }
@@ -184,15 +218,15 @@ class WelcomePage extends AbstractWelcomePage<*> {
     _doRenderInsecureRoomNameWarning() {
         return (
             <View
-                style = { [
+                style={[
                     styles.messageContainer,
                     styles.insecureRoomNameWarningContainer
-                ] }>
+                ]}>
                 <Icon
-                    src = { IconWarning }
-                    style = { styles.insecureRoomNameWarningIcon } />
-                <Text style = { styles.insecureRoomNameWarningText }>
-                    { this.props.t('security.insecureRoomNameWarning') }
+                    src={IconWarning}
+                    style={styles.insecureRoomNameWarningIcon}/>
+                <Text style={styles.insecureRoomNameWarningText}>
+                    {this.props.t('security.insecureRoomNameWarning')}
                 </Text>
             </View>
         );
@@ -240,7 +274,6 @@ class WelcomePage extends AbstractWelcomePage<*> {
         }
 
         Animated.timing(
-
             // $FlowExpectedError
             this.state.hintBoxAnimation,
 
@@ -256,9 +289,9 @@ class WelcomePage extends AbstractWelcomePage<*> {
 
                 // $FlowExpectedError
                 && !focused
-                    && this.setState({
-                        _fieldFocused: false
-                    }));
+                && this.setState({
+                    _fieldFocused: false
+                }));
     }
 
     _renderHintBox: () => React$Element<any>;
@@ -270,19 +303,19 @@ class WelcomePage extends AbstractWelcomePage<*> {
      * @returns {React$Node}
      */
     _renderHintBox() {
-        const { t } = this.props;
+        const {t} = this.props;
 
         // $FlowExpectedError
         if (this.state._fieldFocused) {
             return (
-                <Animated.View style = { this._getHintBoxStyle() }>
-                    <View style = { styles.hintTextContainer } >
-                        <Text style = { styles.hintText }>
-                            { t('welcomepage.roomnameHint') }
+                <Animated.View style={this._getHintBoxStyle()}>
+                    <View style={styles.hintTextContainer}>
+                        <Text style={styles.hintText}>
+                            {t('welcomepage.roomnameHint')}
                         </Text>
                     </View>
-                    <View style = { styles.hintButtonContainer } >
-                        { this._renderJoinButton() }
+                    <View style={styles.hintButtonContainer}>
+                        {this._renderJoinButton()}
                     </View>
                 </Animated.View>
             );
@@ -298,7 +331,7 @@ class WelcomePage extends AbstractWelcomePage<*> {
      * @returns {ReactElement}
      */
     _renderJoinButton() {
-        const { t } = this.props;
+        const {t} = this.props;
         let children;
 
 
@@ -309,26 +342,26 @@ class WelcomePage extends AbstractWelcomePage<*> {
             children = (
                 <View>
                     <LoadingIndicator
-                        color = { styles.buttonText.color }
-                        size = 'small' />
+                        color={styles.buttonText.color}
+                        size='small'/>
                 </View>
             );
         } else {
             children = (
-                <Text style = { styles.buttonText }>
-                    { this.props.t('welcomepage.join') }
+                <Text style={styles.buttonText}>
+                    {this.props.t('welcomepage.join')}
                 </Text>
             );
         }
 
         return (
             <TouchableHighlight
-                accessibilityLabel =
-                    { t('welcomepage.accessibilityLabel.join') }
-                onPress = { this._onJoin }
-                style = { styles.button }
-                underlayColor = { BaseTheme.palette.ui12 }>
-                { children }
+                accessibilityLabel=
+                    {t('welcomepage.accessibilityLabel.join')}
+                onPress={this._onJoin}
+                style={styles.button}
+                underlayColor={BaseTheme.palette.ui12}>
+                {children}
             </TouchableHighlight>
         );
     }
@@ -338,49 +371,69 @@ class WelcomePage extends AbstractWelcomePage<*> {
      *
      * @returns {ReactElement}
      */
+
     _renderFullUI() {
+
         const roomnameAccLabel = 'welcomepage.accessibilityLabel.roomname';
-        const { t } = this.props;
+        const {t} = this.props;
+
 
         return (
             <>
-                <JitsiStatusBar />
-                <View style = { styles.welcomePage }>
-                    <SafeAreaView style = { styles.roomContainer } >
-                        <View style = { styles.joinControls } >
-                            <Text style = { styles.enterRoomText }>
-                                { t('welcomepage.roomname') }
-                            </Text>
+                <View style={HEADER}>
+
+                    <SettingMenuButton/>
+                    <VideoSwitch/>
+                </View>
+                <JitsiStatusBar/>
+                <StatusBar hidden/>
+                <View style={styles.welcomePage}>
+                    <SafeAreaView style={styles.roomContainer}>
+                        <View style={styles.joinControls}>
+                            {/*<Text style={styles.enterRoomText}>*/}
+                            {/*    {t('welcomepage.roomname')}*/}
+                            {/*</Text>*/}
                             {/* // $FlowExpectedError*/}
-                            <TextInput
-                                accessibilityLabel = { t(roomnameAccLabel) }
-                                autoCapitalize = { 'none' }
-                                autoComplete = { 'off' }
-                                autoCorrect = { false }
-                                autoFocus = { false }
-                                onBlur = { this._onFieldBlur }
-                                onChangeText = { this._onRoomChange }
-                                onFocus = { this._onFieldFocus }
-                                onSubmitEditing = { this._onJoin }
-                                placeholder = { this.state.roomPlaceholder }
-                                placeholderTextColor = { PLACEHOLDER_TEXT_COLOR }
-                                returnKeyType = { 'go' }
-                                spellCheck = { false }
-                                style = { styles.textInput }
-                                underlineColorAndroid = 'transparent'
-                                value = { this.state.room } />
+
+                            {/*<Text numberOfLines={1}*/}
+                            {/*      style={[styles.textInput]}>*/}
+                            {/*    {this.state.roomName}*/}
+                            {/*</Text>*/}
+
+                            {/*<TextInput*/}
+                            {/*    accessibilityLabel={t(roomnameAccLabel)}*/}
+                            {/*    autoCapitalize={'none'}*/}
+                            {/*    autoComplete={'off'}*/}
+                            {/*    autoCorrect={false}*/}
+                            {/*    autoFocus={false}*/}
+                            {/*    onBlur={this._onFieldBlur}*/}
+                            {/*    // onChangeText={this._onRoomChange}*/}
+                            {/*    onFocus={this._onFieldFocus}*/}
+                            {/*    // onSubmitEditing={this._onJoin}*/}
+                            {/*    placeholder={this.state.roomPlaceholder}*/}
+                            {/*    placeholderTextColor={PLACEHOLDER_TEXT_COLOR}*/}
+                            {/*    returnKeyType={'go'}*/}
+                            {/*    spellCheck={false}*/}
+                            {/*    style={styles.textInput}*/}
+                            {/*    underlineColorAndroid='transparent'*/}
+                            {/*    value={this.state.roomName}*/}
+                            {/*/>*/}
                             {
 
                                 // $FlowExpectedError
-                                this._renderInsecureRoomNameWarning()
+                                // this._renderInsecureRoomNameWarning()
                             }
+
                             {
-                                this._renderHintBox()
+                                // this._renderHintBox()
                             }
                         </View>
                     </SafeAreaView>
                     {/* // $FlowExpectedError*/}
-                    <WelcomePageTabs disabled = { this.state._fieldFocused } />
+                    <WelcomePageTabs disabled={this.state._fieldFocused}/>
+                    <View style={BUTTON_CONTAINER}>
+                        {this._renderJoinButton()}
+                    </View>
                 </View>
             </>
         );
@@ -392,12 +445,12 @@ class WelcomePage extends AbstractWelcomePage<*> {
      * @returns {ReactElement}
      */
     _renderReducedUI() {
-        const { t } = this.props;
+        const {t} = this.props;
 
         return (
-            <View style = { styles.reducedUIContainer }>
-                <Text style = { styles.reducedUIText }>
-                    { t('welcomepage.reducedUIText', { app: getName() }) }
+            <View style={styles.reducedUIContainer}>
+                <Text style={styles.reducedUIText}>
+                    {t('welcomepage.reducedUIText', {app: getName()})}
                 </Text>
             </View>
         );
@@ -420,3 +473,16 @@ function _mapStateToProps(state) {
 }
 
 export default translate(connect(_mapStateToProps)(WelcomePage));
+const HEADER: ViewStyle = {
+    backgroundColor: 'rgba(20, 24, 44, 0.6)',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
+    height: '12%',
+    padding: 20
+}
+const BUTTON_CONTAINER: ViewStyle = {
+    paddingHorizontal: 16,
+    paddingTop: 10,
+    paddingBottom: 50
+}

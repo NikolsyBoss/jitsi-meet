@@ -1,11 +1,11 @@
 // @flow
 
-import { BoxModel, ColorPalette } from '../../../styles';
+import {BoxModel, ColorPalette} from '../../../styles';
 
 const OVERLAY_FONT_COLOR = 'rgba(255, 255, 255, 0.6)';
 const SECONDARY_ACTION_BUTTON_SIZE = 30;
 
-export const AVATAR_SIZE = 65;
+export const AVATAR_SIZE = 50;
 export const UNDERLAY_COLOR = 'rgba(255, 255, 255, 0.2)';
 
 /**
@@ -122,15 +122,19 @@ const SECTION_LIST_STYLES = {
     },
 
     list: {
+        paddingHorizontal: 15.5,
         flex: 1,
         flexDirection: 'column'
     },
 
     listItem: {
+        backgroundColor: 'rgba(95, 95, 95, 0.4)',
+        borderRadius: 10,
         alignItems: 'center',
         flex: 1,
         flexDirection: 'row',
-        padding: 5
+        padding: 5,
+        marginBottom: 10,
     },
 
     listItemDetails: {
@@ -152,7 +156,7 @@ const SECTION_LIST_STYLES = {
 
     listSection: {
         alignItems: 'center',
-        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+        // backgroundColor: 'rgba(255, 255, 255, 0.2)',
         flex: 1,
         flexDirection: 'row',
         paddingVertical: 5,
@@ -160,9 +164,9 @@ const SECTION_LIST_STYLES = {
     },
 
     listSectionText: {
-        color: OVERLAY_FONT_COLOR,
-        fontSize: 14,
-        fontWeight: 'normal'
+        color: '#fff',
+        fontSize: 18,
+        fontWeight: '500'
     },
 
     pullToRefresh: {

@@ -57,11 +57,11 @@ export default {
      * Join button style.
      */
     button: {
-        backgroundColor: BaseTheme.palette.screen01Header,
+        backgroundColor: '#2F80ED',
         borderColor: BaseTheme.palette.screen01Header,
         borderRadius: 4,
         borderWidth: 1,
-        height: 30,
+        height: 41,
         justifyContent: 'center',
         paddingHorizontal: 20
     },
@@ -103,6 +103,7 @@ export default {
      * Container for the button on the hint box.
      */
     hintButtonContainer: {
+        width: '100%',
         flexDirection: 'row',
         justifyContent: 'center'
     },
@@ -208,9 +209,10 @@ export default {
 
     drawerNavigationIcon: {
         height: BaseTheme.spacing[6],
-        marginLeft: BaseTheme.spacing[1],
-        marginTop: BaseTheme.spacing[1],
-        width: BaseTheme.spacing[6]
+        // marginLeft: BaseTheme.spacing[1],
+        // marginTop: BaseTheme.spacing[1],
+        // width: BaseTheme.spacing[6]
+        // paddingVertical: BaseTheme.spacing[6]
     },
 
     /**
@@ -231,8 +233,8 @@ export default {
         color: TEXT_COLOR,
         fontSize: 23,
         height: 50,
-        padding: 4,
-        textAlign: 'center'
+        textAlign: 'center',
+        padding: 10,
     },
 
     /**

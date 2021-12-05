@@ -186,7 +186,7 @@ class SettingsView extends AbstractSettingsView<Props, State> {
             <JitsiScreen
                 style = { styles.settingsViewContainer }>
                 <ScrollView>
-                    <FormSectionAccordion
+                    <FormSe1ctionAccordion
                         accordion = { false }
                         expandable = { false }
                         label = 'settingsView.profileSection'>
@@ -225,7 +225,7 @@ class SettingsView extends AbstractSettingsView<Props, State> {
                                 }
                             }}
                             value = { email } />
-                    </FormSectionAccordion>
+                    </FormSe1ctionAccordion>
                     <FormSectionAccordion
                         accordion = { false }
                         expandable = { false }
@@ -285,7 +285,7 @@ class SettingsView extends AbstractSettingsView<Props, State> {
                         label = 'settingsView.advanced'>
                         <FormRow
                             label = 'settingsView.disableCallIntegration'>
-                            <Switch
+                            <Switchf
                                 onValueChange = { this._onDisableCallIntegration }
                                 thumbColor = { THUMB_COLOR }
                                 trackColor = {{ true: palette.screen01Header }}

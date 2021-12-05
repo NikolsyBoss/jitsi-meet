@@ -75,10 +75,14 @@ export const drawerNavigatorScreenOptions = {
  */
 export const drawerScreenOptions = {
     ...TransitionPresets.ModalTransition,
+
+    // elevation: 0, // remove shadow on Android
+    // shadowOpacity: 0, // remove shadow on iOS
     gestureEnabled: true,
-    headerShown: true,
+    headerShown: false,
     headerStyle: {
-        backgroundColor: BaseTheme.palette.screen01Header
+        elevation: 0,
+        backgroundColor: 'rgba(20, 24, 44, 0.6)'
     }
 };
 

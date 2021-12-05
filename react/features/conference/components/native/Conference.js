@@ -37,6 +37,10 @@ import LonelyMeetingExperience from './LonelyMeetingExperience';
 import NavigationBar from './NavigationBar';
 import { screen } from './routes';
 import styles from './styles';
+import SharedDocument from "../../../etherpad/components/native/SharedDocument";
+import Chat from "../../../chat/components/native/Chat";
+import AddPeopleDialog
+    from "../../../invite/components/add-people-dialog/native/AddPeopleDialog";
 
 
 /**
@@ -227,7 +231,18 @@ class Conference extends AbstractConference<Props, *> {
 
         return true;
     }
-
+    /**
+     * Renders JitsiModals that are supposed to be on the conference screen.
+     *
+     * @returns {Array<ReactElement>}
+     */
+    _renderConferenceModals() {
+        return [
+            <AddPeopleDialog key = 'addPeopleDialog' />,
+            <Chat key = 'chat' />,
+            <SharedDocument key = 'sharedDocument' />
+        ];
+    }
     /**
      * Renders the conference notification badge if the feature is enabled.
      *

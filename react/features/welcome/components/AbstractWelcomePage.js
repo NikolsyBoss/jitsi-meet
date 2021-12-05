@@ -90,7 +90,8 @@ export class AbstractWelcomePage<P: Props> extends Component<P, *> {
         joining: false,
         room: '',
         roomPlaceholder: '',
-        updateTimeoutId: undefined
+        updateTimeoutId: undefined,
+        roomName: ''
     };
 
     /**

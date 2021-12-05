@@ -137,7 +137,7 @@ class OverflowMenu extends PureComponent<Props, State> {
                 onCancel = { this._onCancel }
                 renderFooter = { false && !toolbarButtons.has('raisehand')
                     ? this._renderReactionMenu
-                    : null }>        
+                    : null }>
                 <AudioRouteButton { ...topButtonProps } />
                 <ParticipantsPaneButton { ...buttonProps } />
                 <AudioOnlyButton { ...buttonProps } />

@@ -1,15 +1,15 @@
 // @flow
 
-import React, { Component } from 'react';
-import { Switch, TouchableWithoutFeedback, View } from 'react-native';
+import React, {Component} from 'react';
+import {Switch, TouchableWithoutFeedback, View} from 'react-native';
 
-import { ColorSchemeRegistry } from '../../base/color-scheme';
-import { translate } from '../../base/i18n';
-import { Text } from '../../base/react';
-import { connect } from '../../base/redux';
-import { updateSettings } from '../../base/settings';
+import {ColorSchemeRegistry} from '../../base/color-scheme';
+import {translate} from '../../base/i18n';
+import {Text} from '../../base/react';
+import {connect} from '../../base/redux';
+import {updateSettings} from '../../base/settings';
 
-import styles, { SWITCH_THUMB_COLOR, SWITCH_UNDER_COLOR } from './styles';
+import styles, {SWITCH_THUMB_COLOR, SWITCH_UNDER_COLOR} from './styles';
 
 /**
  * The type of the React {@code Component} props of {@link VideoSwitch}.
@@ -61,29 +61,32 @@ class VideoSwitch extends Component<Props> {
      * @inheritdoc
      */
     render() {
-        const { t, _headerStyles, _settings } = this.props;
+        const {t, _headerStyles, _settings} = this.props;
 
         return (
-            <View style = { styles.audioVideoSwitchContainer }>
+            <View style={styles.audioVideoSwitchContainer}>
                 <TouchableWithoutFeedback
-                    onPress = { this._onStartAudioOnlyFalse }>
-                    <View style = { styles.switchLabel }>
-                        <Text style = { _headerStyles.headerText }>
-                            { t('welcomepage.audioVideoSwitch.video') }
+                    onPress={this._onStartAudioOnlyFalse}>
+                    <View style={styles.switchLabel}>
+                        <Text style={{color: '#D8D8D8', fontSize: 16}}>
+                            {t('welcomepage.audioVideoSwitch.video')}
                         </Text>
                     </View>
                 </TouchableWithoutFeedback>
                 <Switch
-                    onValueChange = { this._onStartAudioOnlyChange }
-                    style = { styles.audioVideoSwitch }
-                    thumbColor = { SWITCH_THUMB_COLOR }
-                    trackColor = {{ true: SWITCH_UNDER_COLOR }}
-                    value = { _settings.startAudioOnly } />
+                    onValueChange={this._onStartAudioOnlyChange}
+                    style={styles.audioVideoSwitch}
+                    thumbColor={SWITCH_THUMB_COLOR}
+                    trackColor={{true: SWITCH_UNDER_COLOR}}
+                    value={_settings.startAudioOnly}/>
                 <TouchableWithoutFeedback
-                    onPress = { this._onStartAudioOnlyTrue }>
-                    <View style = { styles.switchLabel }>
-                        <Text style = { _headerStyles.headerText }>
-                            { t('welcomepage.audioVideoSwitch.audio') }
+                    onPress={this._onStartAudioOnlyTrue}>
+                    <View style={styles.switchLabel}>
+                        <Text
+                            // style = { _headerStyles.headerText }
+                            style={{color: '#D8D8D8', fontSize: 16}}
+                        >
+                            {t('welcomepage.audioVideoSwitch.audio')}
                         </Text>
                     </View>
                 </TouchableWithoutFeedback>
@@ -101,7 +104,7 @@ class VideoSwitch extends Component<Props> {
      * @returns {void}
      */
     _onStartAudioOnlyChange(startAudioOnly) {
-        const { dispatch } = this.props;
+        const {dispatch} = this.props;
 
         dispatch(updateSettings({
             startAudioOnly

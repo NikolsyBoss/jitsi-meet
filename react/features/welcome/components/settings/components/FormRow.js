@@ -1,11 +1,11 @@
 // @flow
 
-import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import React, {Component} from 'react';
+import {Text, View} from 'react-native';
 
-import { translate } from '../../../../base/i18n';
+import {translate} from '../../../../base/i18n';
 
-import styles, { ANDROID_UNDERLINE_COLOR, PLACEHOLDER_COLOR } from './styles';
+import styles, {ANDROID_UNDERLINE_COLOR, PLACEHOLDER_COLOR} from './styles';
 
 /**
  * The type of the React {@code Component} props of {@link FormRow}.
@@ -65,30 +65,30 @@ class FormRow extends Component<Props> {
      * @returns {ReactElement}
      */
     render() {
-        const { layout, t } = this.props;
+        const {layout, t} = this.props;
 
         // Some field types need additional props to look good and standardized
         // on a form.
         const newChild
             = React.cloneElement(
-                this.props.children,
-                this._getDefaultFieldProps(this.props.children));
-
+            this.props.children,
+            this._getDefaultFieldProps(this.props.children));
+        const textStyle = this.props?.textStyle ? this.props?.textStyle : styles.text;
         return (
             <View
-                style = { this._getRowStyle() } >
-                <View style = { styles.fieldLabelContainer } >
+                style={this._getRowStyle()}>
+                <View style={styles.fieldLabelContainer}>
                     <Text
-                        style = { [
-                            styles.text,
+                        style={[
+                            textStyle,
                             styles.fieldLabelText,
                             layout === 'column' ? styles.fieldLabelTextColumn : undefined
-                        ] } >
-                        { t(this.props.label) }
+                        ]}>
+                        {t(this.props.label)}
                     </Text>
                 </View>
-                <View style = { styles.fieldValueContainer } >
-                    { newChild }
+                <View style={styles.fieldValueContainer}>
+                    {newChild}
                 </View>
             </View>
         );
@@ -111,15 +111,15 @@ class FormRow extends Component<Props> {
     _getDefaultFieldProps(field: Object) {
         if (field && field.type) {
             switch (field.type.displayName) {
-            case 'TextInput':
-                return {
-                    placeholderTextColor: PLACEHOLDER_COLOR,
-                    style: [
-                        styles.textInputField,
-                        this.props.layout === 'column' ? styles.textInputFieldColumn : undefined
-                    ],
-                    underlineColorAndroid: ANDROID_UNDERLINE_COLOR
-                };
+                case 'TextInput':
+                    return {
+                        placeholderTextColor: PLACEHOLDER_COLOR,
+                        style: [
+                            styles.textInputField,
+                            this.props.layout === 'column' ? styles.textInputFieldColumn : undefined
+                        ],
+                        underlineColorAndroid: ANDROID_UNDERLINE_COLOR
+                    };
             }
         }
 
@@ -135,7 +135,7 @@ class FormRow extends Component<Props> {
      * @returns {Array<Object>}
      */
     _getRowStyle() {
-        const { fieldSeparator, layout } = this.props;
+        const {fieldSeparator, layout} = this.props;
         const rowStyle = [
             styles.fieldContainer
         ];
