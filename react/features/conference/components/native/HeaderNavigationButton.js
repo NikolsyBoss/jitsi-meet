@@ -30,7 +30,7 @@ const HeaderNavigationButton = ({ onPress, src, style }: Props) => (
         onPress = { onPress }
         style = { styles.headerNavigationButton } >
         <Icon
-            size = { 20 }
+            size = { 24 }
             src = { src }
             style = { [ styles.headerNavigationIcon, style ] } />
     </TouchableOpacity>

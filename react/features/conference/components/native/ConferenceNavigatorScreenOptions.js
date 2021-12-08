@@ -1,9 +1,9 @@
 // @flow
 /* eslint-disable react/no-multi-comp */
 
-import { TransitionPresets } from '@react-navigation/stack';
+import {TransitionPresets} from '@react-navigation/stack';
 import React from 'react';
-import { Platform } from 'react-native';
+import {Platform} from 'react-native';
 
 import {
     Icon,
@@ -15,7 +15,7 @@ import {
 } from '../../../base/icons';
 import BaseTheme from '../../../base/ui/components/BaseTheme';
 
-import { goBack } from './ConferenceNavigationContainerRef';
+import {goBack} from './ConferenceNavigationContainerRef';
 import HeaderNavigationButton from './HeaderNavigationButton';
 
 /**
@@ -91,11 +91,11 @@ export const drawerScreenOptions = {
  */
 export const welcomeScreenOptions = {
     ...drawerScreenOptions,
-    drawerIcon: ({ focused }) => (
+    drawerIcon: ({focused}) => (
         <Icon
-            color = { focused ? BaseTheme.palette.screen01Header : BaseTheme.palette.field01Disabled }
-            size = { 20 }
-            src = { IconHome } />
+            color={focused ? BaseTheme.palette.screen01Header : BaseTheme.palette.field01Disabled}
+            size={20}
+            src={IconHome}/>
     ),
     headerTitleStyle: {
         color: BaseTheme.palette.screen01Header
@@ -107,11 +107,11 @@ export const welcomeScreenOptions = {
  */
 export const settingsScreenOptions = {
     ...drawerScreenOptions,
-    drawerIcon: ({ focused }) => (
+    drawerIcon: ({focused}) => (
         <Icon
-            color = { focused ? BaseTheme.palette.screen01Header : BaseTheme.palette.field01Disabled }
-            size = { 20 }
-            src = { IconSettings } />
+            color={focused ? BaseTheme.palette.screen01Header : BaseTheme.palette.field01Disabled}
+            size={20}
+            src={IconSettings}/>
     ),
     headerTitleStyle: {
         color: BaseTheme.palette.text01
@@ -123,11 +123,11 @@ export const settingsScreenOptions = {
  */
 export const termsAndPrivacyScreenOptions = {
     ...drawerScreenOptions,
-    drawerIcon: ({ focused }) => (
+    drawerIcon: ({focused}) => (
         <Icon
-            color = { focused ? BaseTheme.palette.screen01Header : BaseTheme.palette.field01Disabled }
-            size = { 20 }
-            src = { IconInfo } />
+            color={focused ? BaseTheme.palette.screen01Header : BaseTheme.palette.field01Disabled}
+            size={20}
+            src={IconInfo}/>
     ),
     headerTitleStyle: {
         color: BaseTheme.palette.text01
@@ -139,11 +139,11 @@ export const termsAndPrivacyScreenOptions = {
  */
 export const helpScreenOptions = {
     ...drawerScreenOptions,
-    drawerIcon: ({ focused }) => (
+    drawerIcon: ({focused}) => (
         <Icon
-            color = { focused ? BaseTheme.palette.screen01Header : BaseTheme.palette.field01Disabled }
-            size = { 20 }
-            src = { IconHelp } />
+            color={focused ? BaseTheme.palette.screen01Header : BaseTheme.palette.field01Disabled}
+            size={20}
+            src={IconHelp}/>
     ),
     headerTitleStyle: {
         color: BaseTheme.palette.text01
@@ -186,8 +186,8 @@ export const presentationScreenOptions = {
     headerBackTitleVisible: false,
     headerLeft: () => (
         <HeaderNavigationButton
-            onPress = { goBack }
-            src = { IconClose } />
+            onPress={goBack}
+            src={IconClose}/>
     ),
     headerStatusBarHeight: 0,
     headerStyle: {

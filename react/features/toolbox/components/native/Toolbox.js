@@ -1,17 +1,19 @@
 // @flow
 
 import React from 'react';
-import { SafeAreaView, View } from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 
-import { ColorSchemeRegistry } from '../../../base/color-scheme';
-import { connect } from '../../../base/redux';
-import { StyleType } from '../../../base/styles';
-import { ChatButton } from '../../../chat';
-import { ParticipantsPaneButton } from '../../../participants-pane/components/native';
-import { ReactionsMenuButton } from '../../../reactions/components';
-import { isReactionsEnabled } from '../../../reactions/functions.any';
-import { TileViewButton } from '../../../video-layout';
-import { isToolboxVisible, getMovableButtons } from '../../functions.native';
+import {ColorSchemeRegistry} from '../../../base/color-scheme';
+import {connect} from '../../../base/redux';
+import {StyleType} from '../../../base/styles';
+import {ChatButton} from '../../../chat';
+import {
+    ParticipantsPaneButton
+} from '../../../participants-pane/components/native';
+import {ReactionsMenuButton} from '../../../reactions/components';
+import {isReactionsEnabled} from '../../../reactions/functions.any';
+import {TileViewButton} from '../../../video-layout';
+import {isToolboxVisible, getMovableButtons} from '../../functions.native';
 import AudioMuteButton from '../AudioMuteButton';
 import HangupButton from '../HangupButton';
 import VideoMuteButton from '../VideoMuteButton';
@@ -58,8 +60,12 @@ function Toolbox(props: Props) {
         return null;
     }
 
-    const { _styles, _width, _reactionsEnabled } = props;
-    const { buttonStylesBorderless, hangupButtonStyles, toggledButtonStyles } = _styles;
+    const {_styles, _width, _reactionsEnabled} = props;
+    const {
+        buttonStylesBorderless,
+        hangupButtonStyles,
+        toggledButtonStyles
+    } = _styles;
     const additionalButtons = getMovableButtons(_width);
     const backgroundToggledStyle = {
         ...toggledButtonStyles,
@@ -71,46 +77,47 @@ function Toolbox(props: Props) {
 
     return (
         <View
-            pointerEvents = 'box-none'
-            style = { styles.toolboxContainer }>
+            pointerEvents='box-none'
+            style={styles.toolboxContainer}>
             <SafeAreaView
-                accessibilityRole = 'toolbar'
-                pointerEvents = 'box-none'
-                style = { styles.toolbox }>
+                accessibilityRole='toolbar'
+                pointerEvents='box-none'
+                style={styles.toolbox}>
                 <AudioMuteButton
-                    styles = { buttonStylesBorderless }
-                    toggledStyles = { toggledButtonStyles } />
+                    styles={buttonStylesBorderless}
+                    toggledStyles={toggledButtonStyles}/>
                 <VideoMuteButton
-                    styles = { buttonStylesBorderless }
-                    toggledStyles = { toggledButtonStyles } />
+                    styles={buttonStylesBorderless}
+                    toggledStyles={toggledButtonStyles}/>
                 {
                     additionalButtons.has('chat')
-                      && <ChatButton
-                          styles = { buttonStylesBorderless }
-                          toggledStyles = { backgroundToggledStyle } />
+                    && <ChatButton
+                        styles={buttonStylesBorderless}
+                        toggledStyles={backgroundToggledStyle}/>
                 }
 
-                {/* { additionalButtons.has('raisehand') && (_reactionsEnabled
-                    ? <ReactionsMenuButton
-                        styles = { buttonStylesBorderless }
-                        toggledStyles = { backgroundToggledStyle } />
-                    : <RaiseHandButton
-                        styles = { buttonStylesBorderless }
-                        toggledStyles = { backgroundToggledStyle } />)}
-                {additionalButtons.has('tileview') && <TileViewButton styles = { buttonStylesBorderless } />}
-                {additionalButtons.has('participantspane')
-                && <ParticipantsPaneButton
-                    styles = { buttonStylesBorderless } />
-                }
+                {/*/!* { additionalButtons.has('raisehand') && (_reactionsEnabled*/}
+                {/*    ? <ReactionsMenuButton*/}
+                {/*        styles = { buttonStylesBorderless }*/}
+                {/*        toggledStyles = { backgroundToggledStyle } />*/}
+                {/*    : <RaiseHandButton*/}
+                {/*        styles = { buttonStylesBorderless }*/}
+                {/*        toggledStyles = { backgroundToggledStyle } />)}*/}
+                {/*{additionalButtons.has('tileview') && <TileViewButton styles = { buttonStylesBorderless } />}*/}
+                {/*{additionalButtons.has('participantspane')*/}
+                {/*&& <ParticipantsPaneButton*/}
+                {/*    styles = { buttonStylesBorderless } />*/}
+                {/*}*/}
+
                 {additionalButtons.has('togglecamera')
                       && <ToggleCameraButton
                           styles = { buttonStylesBorderless }
-                          toggledStyles = { backgroundToggledStyle } />} */}
+                          toggledStyles = { backgroundToggledStyle } />}
                 <OverflowMenuButton
-                    styles = { buttonStylesBorderless }
-                    toggledStyles = { toggledButtonStyles } />
+                    styles={buttonStylesBorderless}
+                    toggledStyles={toggledButtonStyles}/>
                 <HangupButton
-                    styles = {[hangupButtonStyles, { borderRadius: 50, backgroundColor: '#FF3636', }]} />
+                    styles={hangupButtonStyles}/>
             </SafeAreaView>
         </View>
     );

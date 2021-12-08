@@ -28,7 +28,7 @@ const toolbarButton = {
 const toolbarButtonIcon = {
     alignSelf: 'center',
     color: ColorPalette.darkGrey,
-    fontSize: 24
+    fontSize: 32
 };
 
 
@@ -135,7 +135,7 @@ ColorSchemeRegistry.register('Toolbox', {
         iconStyle: whiteToolbarButtonIcon,
         style: {
             ...toolbarButton,
-            backgroundColor: schemeColor('hangup')
+            // backgroundColor: schemeColor('hangup')
         },
         underlayColor: ColorPalette.buttonUnderlay
     },

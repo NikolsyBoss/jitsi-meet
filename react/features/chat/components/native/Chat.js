@@ -1,12 +1,12 @@
 // @flow
 
-import { useIsFocused } from '@react-navigation/native';
-import React, { useEffect } from 'react';
+import {useIsFocused} from '@react-navigation/native';
+import React, {useEffect} from 'react';
 
-import { translate } from '../../../base/i18n';
+import {translate} from '../../../base/i18n';
 import JitsiScreen from '../../../base/modal/components/JitsiScreen';
-import { connect } from '../../../base/redux';
-import { closeChat, openChat } from '../../actions.native';
+import {connect} from '../../../base/redux';
+import {closeChat, openChat} from '../../actions.native';
 import AbstractChat, {
     _mapStateToProps,
     type Props as AbstractProps
@@ -16,9 +16,11 @@ import ChatInputBar from './ChatInputBar';
 import MessageContainer from './MessageContainer';
 import MessageRecipient from './MessageRecipient';
 import styles from './styles';
+import {ImageBackground} from "react-native";
 
 
-type Props = AbstractProps & {
+type
+    Props = AbstractProps & {
 
     /**
      * Is this screen focused or not(React Navigation).
@@ -40,6 +42,7 @@ type Props = AbstractProps & {
  * Implements a React native component that renders the chat window (modal) of
  * the mobile client.
  */
+
 class Chat extends AbstractChat<Props> {
 
     /**
@@ -48,17 +51,23 @@ class Chat extends AbstractChat<Props> {
      * @inheritdoc
      */
     render() {
-        const { _messages, route } = this.props;
+        const {_messages, route} = this.props;
         const privateMessageRecipient = route.params?.privateMessageRecipient;
 
         return (
-            <JitsiScreen
-                hasTabNavigator = { true }
-                style = { styles.chatContainer }>
-                <MessageContainer messages = { _messages } />
-                <MessageRecipient privateMessageRecipient = { privateMessageRecipient } />
-                <ChatInputBar onSend = { this._onSendMessage } />
-            </JitsiScreen>
+            <ImageBackground style={styles.imgBackground}
+                             source={require('./bg-chat.png')}
+                             resizeMode="cover">
+                <JitsiScreen
+                    hasTabNavigator={true}
+                    style={styles.chatContainer}>
+                    <MessageContainer messages={_messages}/>
+                    <MessageRecipient
+                        privateMessageRecipient={privateMessageRecipient}/>
+                    <ChatInputBar onSend={this._onSendMessage}/>
+                </JitsiScreen>
+            </ImageBackground>
+
         );
     }
 
@@ -78,7 +87,7 @@ export default translate(connect(_mapStateToProps)(props => {
 
     const nrUnreadMessages
         = !isChatScreenFocused && _nbUnreadMessages > 0
-            ? `(${_nbUnreadMessages})` : '';
+        ? `(${_nbUnreadMessages})` : '';
 
     useEffect(() => {
         dispatch(openChat(privateMessageRecipient));
@@ -88,11 +97,11 @@ export default translate(connect(_mapStateToProps)(props => {
         });
 
         return () => dispatch(closeChat());
-    }, [ nrUnreadMessages ]);
+    }, [nrUnreadMessages]);
 
     return (
         <Chat
-            { ...props }
-            isChatScreenFocused = { isChatScreenFocused } />
+            {...props}
+            isChatScreenFocused={isChatScreenFocused}/>
     );
 }));

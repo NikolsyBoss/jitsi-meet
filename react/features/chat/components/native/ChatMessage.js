@@ -1,22 +1,26 @@
 // @flow
 
 import React from 'react';
-import { Text, View } from 'react-native';
+import {Text, View} from 'react-native';
 
-import { Avatar } from '../../../base/avatar';
-import { ColorSchemeRegistry } from '../../../base/color-scheme';
-import { translate } from '../../../base/i18n';
-import { Linkify } from '../../../base/react';
-import { connect } from '../../../base/redux';
-import { type StyleType } from '../../../base/styles';
-import { MESSAGE_TYPE_ERROR, MESSAGE_TYPE_LOCAL } from '../../constants';
-import { replaceNonUnicodeEmojis } from '../../functions';
-import AbstractChatMessage, { type Props as AbstractProps } from '../AbstractChatMessage';
+import {Avatar} from '../../../base/avatar';
+import {ColorSchemeRegistry} from '../../../base/color-scheme';
+import {translate} from '../../../base/i18n';
+import {Linkify} from '../../../base/react';
+import {connect} from '../../../base/redux';
+import {type StyleType} from '../../../base/styles';
+import {MESSAGE_TYPE_ERROR, MESSAGE_TYPE_LOCAL} from '../../constants';
+import {replaceNonUnicodeEmojis} from '../../functions';
+import AbstractChatMessage, {
+    type
+    Props as AbstractProps
+} from '../AbstractChatMessage';
 
 import PrivateMessageButton from './PrivateMessageButton';
 import styles from './styles';
 
-type Props = AbstractProps & {
+type
+Props = AbstractProps & {
 
     /**
      * The color-schemed stylesheet of the feature.
@@ -34,9 +38,9 @@ class ChatMessage extends AbstractChatMessage<Props> {
      * @inheritdoc
      */
     render() {
-        const { _styles, message } = this.props;
+        const {_styles, message} = this.props;
         const localMessage = message.messageType === MESSAGE_TYPE_LOCAL;
-        const { privateMessage } = message;
+        const {privateMessage} = message;
 
         // Style arrays that need to be updated in various scenarios, such as
         // error messages or others.
@@ -72,20 +76,34 @@ class ChatMessage extends AbstractChatMessage<Props> {
         }
 
         return (
-            <View style = { styles.messageWrapper } >
-                { this._renderAvatar() }
-                <View style = { detailsWrapperStyle }>
-                    <View style = { messageBubbleStyle }>
-                        <View style = { styles.textWrapper } >
-                            { this._renderDisplayName() }
-                            <Linkify linkStyle = { styles.chatLink }>
-                                { replaceNonUnicodeEmojis(this._getMessageText()) }
+            <View style={styles.messageWrapper}>
+                {/*{ this._renderAvatar() }*/}
+                <View style={detailsWrapperStyle}>
+                    <View style={messageBubbleStyle}>
+                        <View style={styles.textWrapper}>
+                            {this._renderDisplayName()}
+                            {/*{localMessage*/}
+                            {/*    ?*/}
+                            {/*    <LinearGradient*/}
+                            {/*        colors={['#4c669f', '#3b5998', '#192f6a']}*/}
+                            {/*        >*/}
+                            {/*        <Text>*/}
+                            {/*            Sign in with Facebook*/}
+                            {/*        </Text>*/}
+                            {/*    </LinearGradient>*/}
+                            {/*    :*/}
+                            <Linkify linkStyle={styles.chatLink}>
+                                <Text style={styles.text}>
+                                    {replaceNonUnicodeEmojis(this._getMessageText())}
+                                </Text>
                             </Linkify>
-                            { this._renderPrivateNotice() }
+                            {/*}*/}
+
+                            {this._renderPrivateNotice()}
                         </View>
-                        { this._renderPrivateReplyButton() }
+                        {this._renderPrivateReplyButton()}
                     </View>
-                    { this._renderTimestamp() }
+                    {this._renderTimestamp()}
                 </View>
             </View>
         );
@@ -103,14 +121,14 @@ class ChatMessage extends AbstractChatMessage<Props> {
      * @returns {React$Element<*>}
      */
     _renderAvatar() {
-        const { message } = this.props;
+        const {message} = this.props;
 
         return (
-            <View style = { styles.avatarWrapper }>
-                { this.props.showAvatar && <Avatar
-                    displayName = { message.displayName }
-                    participantId = { message.id }
-                    size = { styles.avatarWrapper.width } />
+            <View style={styles.avatarWrapper}>
+                {this.props.showAvatar && <Avatar
+                    displayName={message.displayName}
+                    participantId={message.id}
+                    size={styles.avatarWrapper.width}/>
                 }
             </View>
         );
@@ -122,15 +140,15 @@ class ChatMessage extends AbstractChatMessage<Props> {
      * @returns {React$Element<*> | null}
      */
     _renderDisplayName() {
-        const { _styles, message, showDisplayName } = this.props;
+        const {_styles, message, showDisplayName} = this.props;
 
         if (!showDisplayName) {
             return null;
         }
 
         return (
-            <Text style = { _styles.displayName }>
-                { message.displayName }
+            <Text style={_styles.displayName}>
+                {message.displayName}
             </Text>
         );
     }
@@ -141,15 +159,15 @@ class ChatMessage extends AbstractChatMessage<Props> {
      * @returns {React$Element<*> | null}
      */
     _renderPrivateNotice() {
-        const { _styles, message } = this.props;
+        const {_styles, message} = this.props;
 
         if (!message.privateMessage) {
             return null;
         }
 
         return (
-            <Text style = { _styles.privateNotice }>
-                { this._getPrivateNoticeMessage() }
+            <Text style={_styles.privateNotice}>
+                {this._getPrivateNoticeMessage()}
             </Text>
         );
     }
@@ -160,20 +178,20 @@ class ChatMessage extends AbstractChatMessage<Props> {
      * @returns {React$Element<*> | null}
      */
     _renderPrivateReplyButton() {
-        const { _styles, message } = this.props;
-        const { messageType, privateMessage } = message;
+        const {_styles, message} = this.props;
+        const {messageType, privateMessage} = message;
 
         if (!privateMessage || messageType === MESSAGE_TYPE_LOCAL) {
             return null;
         }
 
         return (
-            <View style = { _styles.replyContainer }>
+            <View style={_styles.replyContainer}>
                 <PrivateMessageButton
-                    participantID = { message.id }
-                    reply = { true }
-                    showLabel = { false }
-                    toggledStyles = { _styles.replyStyles } />
+                    participantID={message.id}
+                    reply={true}
+                    showLabel={false}
+                    toggledStyles={_styles.replyStyles}/>
             </View>
         );
     }
@@ -189,8 +207,8 @@ class ChatMessage extends AbstractChatMessage<Props> {
         }
 
         return (
-            <Text style = { styles.timeText }>
-                { this._getFormattedTimestamp() }
+            <Text style={styles.timeText}>
+                {this._getFormattedTimestamp()}
             </Text>
         );
     }

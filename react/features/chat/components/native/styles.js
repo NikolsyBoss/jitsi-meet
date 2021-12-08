@@ -1,7 +1,7 @@
 // @flow
 
-import { ColorSchemeRegistry, schemeColor } from '../../../base/color-scheme';
-import { BoxModel, ColorPalette } from '../../../base/styles';
+import {ColorSchemeRegistry, schemeColor} from '../../../base/color-scheme';
+import {BoxModel, ColorPalette} from '../../../base/styles';
 import BaseTheme from '../../../base/ui/components/BaseTheme.native';
 
 const BUBBLE_RADIUS = 8;
@@ -16,16 +16,27 @@ const BUBBLE_RADIUS = 8;
  */
 export default {
 
+    imgBackground: {
+        width: '100%',
+        height: '100%',
+        flex: 1
+    },
+
     /**
      * Wrapper View for the avatar.
      */
     avatarWrapper: {
         marginRight: 8,
         width: 32
+
     },
 
     chatLink: {
-        color: ColorPalette.blue
+        color: ColorPalette.blue,
+
+    },
+    text: {
+        color: ColorPalette.white,
     },
 
     /**
@@ -34,41 +45,51 @@ export default {
     detailsWrapper: {
         alignItems: 'flex-start',
         flex: 1,
-        flexDirection: 'column'
+        flexDirection: 'column',
+
     },
 
     emptyComponentWrapper: {
         alignSelf: 'center',
         flex: 1,
         padding: BoxModel.padding,
-        paddingTop: '8%'
+        paddingTop: '8%',
+
     },
 
     /**
      * A special padding to avoid issues on some devices (such as Android devices with custom suggestions bar).
      */
     extraBarPadding: {
-        paddingBottom: 30
+        paddingBottom: 30,
     },
 
     inputBar: {
         alignItems: 'center',
-        borderTopColor: 'rgb(209, 219, 231)',
-        borderTopWidth: 1,
+        // borderTopColor: 'rgb(209, 219, 231)',
+        // borderTopWidth: 1,
         flexDirection: 'row',
-        paddingHorizontal: BoxModel.padding
+        paddingHorizontal: BoxModel.padding,
     },
 
     inputField: {
-        color: 'rgb(28, 32, 37)',
+        // color: 'rgb(28, 32, 37)',
+        borderRadius: 8,
+        backgroundColor: '#35393D',
+
+        color: 'rgb(255,255,255)',
         flex: 1,
-        height: 48
+        height: 48,
+        paddingHorizontal: 15,
     },
 
     messageBubble: {
         alignItems: 'center',
         borderRadius: BUBBLE_RADIUS,
-        flexDirection: 'row'
+        flexDirection: 'row',
+
+        // backgroundColor: 'rgba(129, 157, 184, 0)',
+
     },
 
     /**
@@ -79,7 +100,8 @@ export default {
         flex: 1,
         flexDirection: 'row',
         marginHorizontal: 17,
-        marginVertical: 4
+        marginVertical: 4,
+
     },
 
     /**
@@ -92,11 +114,13 @@ export default {
     replyWrapper: {
         alignItems: 'center',
         flexDirection: 'row'
+
     },
 
     sendButtonIcon: {
-        color: ColorPalette.darkGrey,
-        fontSize: 22
+        color: ColorPalette.white,
+        fontSize: 22,
+        marginLeft: 10
     },
 
     /**
@@ -104,6 +128,7 @@ export default {
      */
     systemMessageBubble: {
         backgroundColor: 'rgb(247, 215, 215)'
+
     },
 
     /**
@@ -112,19 +137,23 @@ export default {
     textWrapper: {
         alignItems: 'flex-start',
         flexDirection: 'column',
-        padding: 9
+        paddingHorizontal: 12,
+        paddingVertical: 6,
+
     },
 
     /**
      * Text node for the timestamp.
      */
     timeText: {
-        color: 'rgb(164, 184, 209)',
+        // color: 'rgb(164, 184, 209)',
+        color: 'rgba(255, 255, 255, 0.5)',
         fontSize: 13
     },
 
     chatContainer: {
-        flex: 1
+        flex: 1,
+
     },
 
     tabContainer: {
@@ -160,18 +189,22 @@ ColorSchemeRegistry.register('Chat', {
      * The text node for the display name.
      */
     displayName: {
-        color: schemeColor('displayName'),
+        // color: schemeColor('displayName'),
+        color: ColorPalette.lightGrey,
+
         fontSize: 13
     },
 
     emptyComponentText: {
-        color: BaseTheme.palette.ui05,
+        // color: BaseTheme.palette.ui05,
+        color: ColorPalette.lightGrey,
         textAlign: 'center'
     },
 
     localMessageBubble: {
-        backgroundColor: schemeColor('localMsgBackground'),
-        borderTopRightRadius: 0
+        // backgroundColor: schemeColor('localMsgBackground'),
+        backgroundColor: 'rgba(130, 133, 242, 1)',
+        // borderTopRightRadius: 0,
     },
 
     messageRecipientCancelIcon: {
@@ -188,6 +221,7 @@ ColorSchemeRegistry.register('Chat', {
 
     messageRecipientText: {
         color: schemeColor('text'),
+
         flex: 1
     },
 
@@ -198,12 +232,15 @@ ColorSchemeRegistry.register('Chat', {
     },
 
     privateMessageBubble: {
+
         backgroundColor: schemeColor('privateMsgBackground')
     },
 
     remoteMessageBubble: {
-        backgroundColor: schemeColor('remoteMsgBackground'),
-        borderTopLeftRadius: 0
+        // backgroundColor: schemeColor('remoteMsgBackground'),
+        backgroundColor: 'rgba(129, 157, 184, 0.3)',
+
+        // borderTopLeftRadius: 0
     },
 
     replyContainer: {
