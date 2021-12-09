@@ -9,6 +9,7 @@ import {
     TouchableHighlight,
     TouchableOpacity,
     View,
+    NativeModules
 } from 'react-native';
 
 import {getName} from '../../app/functions';
@@ -138,7 +139,10 @@ class WelcomePage extends AbstractWelcomePage<*> {
         super.componentDidMount();
         let randomStr = (Math.random() + 1).toString(36).substring(1);
         this.sha256(randomStr).then(hash => this.setState({room: hash}));
-
+        const { AppInfo } = NativeModules;
+        // const name = getStaticName()
+        const {get}=AppInfo.getConstants()
+        console.log('NATIVE MODEULE', AppInfo.getConstants())
         this._updateRoomname();
 
         const {

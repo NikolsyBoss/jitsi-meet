@@ -78,25 +78,28 @@ class AppInfoModule
         constants.put("LIBRE_BUILD", BuildConfig.LIBRE_BUILD);
         constants.put("GOOGLE_SERVICES_ENABLED", BuildConfig.GOOGLE_SERVICES_ENABLED);
 
+        constants.put("userName", getStaticName());
+        constants.put("email", getStaticEmail());
+        constants.put("avatar", getStaticImage());
         return constants;
     }
 
-    @Override
+//     @Override
     public String getName() {
         return NAME;
     }
 
-    @ReactMethod
+//     @ReactMethod
     public String getStaticName() {
         return JitsiMeetActivity.name;
     }
 
-    @ReactMethod
+//     @ReactMethod
     public String getStaticEmail() {
         return JitsiMeetActivity.email;
     }
 
-    @ReactMethod
+//     @ReactMethod
     public String getStaticImage() {
         return JitsiMeetActivity.image;
     }

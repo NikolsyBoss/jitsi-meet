@@ -83,11 +83,10 @@ public class JitsiMeetActivity extends AppCompatActivity
 
         registerForBroadcastMessages();
 
-        Intent intent = getIntent();
-        name = intent.getStringExtra("name", "Nikolay Wilosn");
-        email = intent.getStringExtra("email", "mikolaXd@gmail.com");
-        image = intent.getStringExtra("image", "https://api.efkovideo.top/media/accounts/profiles/test_p6pObix.jpg");
-
+        Bundle extras = getIntent().getExtras();
+        name = extras.getString("name", "Nikolay Wilosn");
+        email = extras.getString("email", "mikolaXd@gmail.com");
+        image = extras.getString("image", "https://api.efkovideo.top/media/accounts/profiles/test_p6pObix.jpg");
 
         if (!extraInitialize()) {
             initialize();
