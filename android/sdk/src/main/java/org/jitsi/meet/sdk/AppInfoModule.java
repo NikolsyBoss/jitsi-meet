@@ -87,17 +87,17 @@ class AppInfoModule
     }
 
     @ReactMethod
-    public String getName() {
+    public String getStaticName() {
         return JitsiMeetActivity.name;
     }
 
     @ReactMethod
-    public String getEmail() {
+    public String getStaticEmail() {
         return JitsiMeetActivity.email;
     }
 
     @ReactMethod
-    public String getImage() {
+    public String getStaticImage() {
         return JitsiMeetActivity.image;
     }
 }
