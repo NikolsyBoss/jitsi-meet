@@ -1,4 +1,4 @@
-import { MD_ITEM_HEIGHT } from '../../../base/dialog/components/native/styles';
+import {MD_ITEM_HEIGHT} from '../../../base/dialog/components/native/styles';
 import BaseTheme from '../../../base/ui/components/BaseTheme.native';
 
 /**
@@ -35,7 +35,7 @@ const contextMenuItemText = {
  * The style of the participants pane buttons.
  */
 export const button = {
-    backgroundColor: BaseTheme.palette.action02,
+    backgroundColor: 'transparent',
     borderRadius: BaseTheme.shape.borderRadius,
     display: 'flex',
     flexDirection: 'row',
@@ -57,7 +57,7 @@ const smallButton = {
  */
 const muteAllButton = {
     ...button,
-    marginLeft: 'auto'
+    // marginLeft: 'auto'
 };
 
 /**
@@ -118,14 +118,18 @@ export default {
 
     participantContainer: {
         alignItems: 'center',
-        borderBottomColor: BaseTheme.palette.field01Hover,
-        borderBottomWidth: 2,
-        display: 'flex',
+        // borderBottomColor: BaseTheme.palette.field01Hover,
+        // borderBottomWidth: 2,
+        backgroundColor: 'rgba(95, 95, 95, 0.2)',
+        // display: 'flex',
         flexDirection: 'row',
         height: BaseTheme.spacing[9],
         paddingLeft: BaseTheme.spacing[3],
         paddingRight: BaseTheme.spacing[3],
-        width: '100%'
+        // width: '100%',
+        borderRadius: 6,
+
+        margin: 10,
     },
 
     participantContent: {
@@ -170,16 +174,16 @@ export default {
     },
 
     participantsPane: {
-        backgroundColor: BaseTheme.palette.ui01,
+        // backgroundColor: BaseTheme.palette.ui02,
         flex: 1,
         justifyContent: 'center'
     },
 
     participantStatesContainer: {
-        display: 'flex',
+        // display: 'flex',
         flexDirection: 'row',
         marginLeft: 'auto',
-        width: '15%'
+        // width: '15%'
     },
 
     participantStateVideo: {
@@ -219,17 +223,18 @@ export default {
     },
 
     meetingListContainer: {
-        flex: 1
+        flex: 1,
     },
 
     meetingListDescription: {
         ...participantListDescription,
+        color: 'white',
         marginLeft: BaseTheme.spacing[3]
     },
 
     footer: {
-        alignItems: 'center',
-        flexDirection: 'row',
+        // alignItems: 'center',
+        // flexDirection: 'row',
         paddingHorizontal: BaseTheme.spacing[3],
         paddingVertical: BaseTheme.spacing[2]
     },
@@ -266,19 +271,28 @@ export default {
 
     muteAllMoreButton: {
         ...muteAllButton,
-        right: BaseTheme.spacing[3]
+        // right: BaseTheme.spacing[3],
+
+        borderWidth: 1,
+        borderColor: BaseTheme.palette.action01,
+        margin: 10,
+
+    },
+
+    elevation: {
+        elevation: 0,
     },
 
     muteAllLabel: {
-        ...BaseTheme.typography.labelButtonLarge,
+        ...BaseTheme.typography.labelButton,
         color: BaseTheme.palette.text01,
-        height: BaseTheme.spacing[7],
+        // height: BaseTheme.spacing[7],
         marginVertical: BaseTheme.spacing[0],
         marginHorizontal: BaseTheme.spacing[0],
-        paddingTop: 12,
-        paddingBottom: 12,
-        textTransform: 'capitalize',
-        width: 94
+        paddingVertical: 8,
+        textTransform: 'none',
+        width: '100%',
+
     },
 
     contextMenuItem: {

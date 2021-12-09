@@ -1,7 +1,7 @@
 // @flow
 
 import { translate } from '../../../base/i18n';
-import {EFCOIconSwitchCamera, IconSwitchCamera} from '../../../base/icons/';
+import {EFCOIconSwitchCamera} from '../../../base/icons/';
 import { MEDIA_TYPE, toggleCameraFacingMode } from '../../../base/media';
 import { connect } from '../../../base/redux';
 import { AbstractButton, type AbstractButtonProps } from '../../../base/toolbox/components';

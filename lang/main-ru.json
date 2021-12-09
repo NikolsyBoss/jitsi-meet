@@ -933,5 +933,32 @@
         "startMeeting": "Создать конференцию",
         "terms": "Условия",
         "title": "Защищенная, полнофункциональная и совершенно бесплатная система видеоконференций"
+    },
+    "participantsPane": {
+        "close": "Закрыть",
+        "header": "Участники",
+        "headings": {
+            "lobby": "Вестибюль ({{count}})",
+            "participantsList": "Участники встречи ({{count}})",
+            "waitLobby": "Ожидание в вестибюле ({{count}})"
+        },
+        "actions": {
+            "allow": "Разрешить участникам:",
+            "allowVideo": "Разрешить видео",
+            "audioModeration": "Включить звук",
+            "blockEveryoneMicCamera": "Заблокировать всем микрофон и камеру",
+            "invite": "Пригласить",
+            "askUnmute": "Попросить включить звук",
+            "moreModerationActions": "Дополнительные возможности модерации",
+            "moreParticipantOptions": "Дополнительные возможности для участников",
+            "mute": "Без звука",
+            "muteAll": "Выключить звук всем, кроме себя",
+            "muteEveryoneElse": "Отключить всех остальных",
+            "stopEveryonesVideo": "Остановить все видео",
+            "stopVideo": "Остановить видео",
+            "unblockEveryoneMicCamera": "Разблокировать микрофон и камеру всех",
+            "videoModeration": "Начать видео"
+        },
+        "search": "Искать участников"
     }
 }

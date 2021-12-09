@@ -100,7 +100,7 @@ function ParticipantItem({
                     className = 'participant-avatar'
                     displayName = { displayName }
                     participantId = { participantID }
-                    size = { 32 } />
+                    size = { 40 } />
                 <View style = { styles.participantDetailsContainer }>
                     <View style = { styles.participantNameContainer }>
                         <Text style = { styles.participantName }>

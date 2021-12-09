@@ -63,27 +63,31 @@ export const QUICK_ACTION_BUTTON: {
 /**
  * Icon mapping for possible participant audio states.
  */
+const MEDIA_ICON_SIZE = 32;
+
 export const AudioStateIcons: {[MediaState]: React$Element<any> | null} = {
     [MEDIA_STATE.DOMINANT_SPEAKER]: (
         <Icon
             className = 'jitsi-icon-dominant-speaker'
-            size = { 16 }
+            size = { MEDIA_ICON_SIZE }
             src = { IconMicrophoneEmpty } />
     ),
     [MEDIA_STATE.FORCE_MUTED]: (
         <Icon
             color = '#E04757'
-            size = { 16 }
+            size = { MEDIA_ICON_SIZE }
             src = { IconMicrophoneEmptySlash } />
     ),
     [MEDIA_STATE.MUTED]: (
         <Icon
-            size = { 16 }
+            color = 'transparent'
+            size = { MEDIA_ICON_SIZE }
             src = { IconMicrophoneEmptySlash } />
     ),
     [MEDIA_STATE.UNMUTED]: (
         <Icon
-            size = { 16 }
+            color = 'transparent'
+            size = { MEDIA_ICON_SIZE }
             src = { IconMicrophoneEmpty } />
     ),
     [MEDIA_STATE.NONE]: null
@@ -96,17 +100,19 @@ export const VideoStateIcons = {
     [MEDIA_STATE.FORCE_MUTED]: (
         <Icon
             color = '#E04757'
-            size = { 16 }
+            size = { MEDIA_ICON_SIZE }
             src = { IconCameraEmptyDisabled } />
     ),
     [MEDIA_STATE.MUTED]: (
         <Icon
-            size = { 16 }
+            color = 'transparent'
+            size = { MEDIA_ICON_SIZE }
             src = { IconCameraEmptyDisabled } />
     ),
     [MEDIA_STATE.UNMUTED]: (
         <Icon
-            size = { 16 }
+            color = 'transparent'
+            size = { MEDIA_ICON_SIZE }
             src = { IconCameraEmpty } />
     ),
     [MEDIA_STATE.NONE]: null

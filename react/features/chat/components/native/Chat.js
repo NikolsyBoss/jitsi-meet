@@ -17,6 +17,7 @@ import MessageContainer from './MessageContainer';
 import MessageRecipient from './MessageRecipient';
 import styles from './styles';
 import {ImageBackground} from "react-native";
+import BaseEfcoBg from "../../../efcoBase/bg/BaseEfcoBG";
 
 
 type
@@ -55,9 +56,8 @@ class Chat extends AbstractChat<Props> {
         const privateMessageRecipient = route.params?.privateMessageRecipient;
 
         return (
-            <ImageBackground style={styles.imgBackground}
-                             source={require('./bg-chat.png')}
-                             resizeMode="cover">
+
+            <BaseEfcoBg>
                 <JitsiScreen
                     hasTabNavigator={true}
                     style={styles.chatContainer}>
@@ -66,8 +66,7 @@ class Chat extends AbstractChat<Props> {
                         privateMessageRecipient={privateMessageRecipient}/>
                     <ChatInputBar onSend={this._onSendMessage}/>
                 </JitsiScreen>
-            </ImageBackground>
-
+            </BaseEfcoBg>
         );
     }
 

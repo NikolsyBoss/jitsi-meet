@@ -60,7 +60,7 @@ export default {
         backgroundColor: '#2F80ED',
         borderColor: BaseTheme.palette.screen01Header,
         borderRadius: 4,
-        borderWidth: 1,
+        // borderWidth: 1,
         height: 41,
         justifyContent: 'center',
         paddingHorizontal: 20

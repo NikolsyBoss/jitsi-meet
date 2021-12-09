@@ -210,20 +210,20 @@ class MeetingParticipantList extends PureComponent<Props, State> {
                         ? `${_currentRoom.name} (${_participantsCount})`
                         : t('participantsPane.headings.participantsList', { count: _participantsCount })}
                 </Text>
-                {
-                    _showInviteButton
-                    && <Button
-                        children = { t('participantsPane.actions.invite') }
-                        icon = { this._renderInviteMoreIcon }
-                        labelStyle = { styles.inviteLabel }
-                        mode = 'contained'
-                        onPress = { this._onInvite }
-                        style = { styles.inviteButton } />
-                }
-                <ClearableInput
-                    onChange = { this._onSearchStringChange }
-                    placeholder = { t('participantsPane.search') }
-                    selectionColor = { this.props.theme.palette.text01 } />
+                {/*{*/}
+                {/*    _showInviteButton*/}
+                {/*    && <Button*/}
+                {/*        children = { t('participantsPane.actions.invite') }*/}
+                {/*        icon = { this._renderInviteMoreIcon }*/}
+                {/*        labelStyle = { styles.inviteLabel }*/}
+                {/*        mode = 'contained'*/}
+                {/*        onPress = { this._onInvite }*/}
+                {/*        style = { styles.inviteButton } />*/}
+                {/*}*/}
+                {/*<ClearableInput*/}
+                {/*    onChange = { this._onSearchStringChange }*/}
+                {/*    placeholder = { t('participantsPane.search') }*/}
+                {/*    selectionColor = { this.props.theme.palette.text01 } />*/}
                 <FlatList
                     bounces = { false }
                     data = { [ _localParticipant?.id, ..._sortedRemoteParticipants ] }

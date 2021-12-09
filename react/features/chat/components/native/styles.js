@@ -76,11 +76,11 @@ export default {
         // color: 'rgb(28, 32, 37)',
         borderRadius: 8,
         backgroundColor: '#35393D',
-
         color: 'rgb(255,255,255)',
         flex: 1,
         height: 48,
         paddingHorizontal: 15,
+        // marginBottom: 15
     },
 
     messageBubble: {
@@ -118,9 +118,10 @@ export default {
     },
 
     sendButtonIcon: {
-        color: ColorPalette.white,
-        fontSize: 22,
-        marginLeft: 10
+        color: ColorPalette.efcoPurple,
+        fontSize: 28,
+        marginLeft: 15,
+        marginRight: 5,
     },
 
     /**

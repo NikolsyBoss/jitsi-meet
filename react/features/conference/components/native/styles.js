@@ -1,10 +1,10 @@
-import { ColorSchemeRegistry, schemeColor } from '../../../base/color-scheme';
-import { BoxModel, fixAndroidViewClipping } from '../../../base/styles';
+import {ColorSchemeRegistry, schemeColor} from '../../../base/color-scheme';
+import {BoxModel, fixAndroidViewClipping} from '../../../base/styles';
 import BaseTheme from '../../../base/ui/components/BaseTheme.native';
 
 export const INSECURE_ROOM_NAME_LABEL_COLOR = BaseTheme.palette.warning03;
 
-const NAVBAR_BUTTON_SIZE = 24;
+const NAVBAR_BUTTON_SIZE = 32;
 
 /**
  * The styles of the feature conference.
@@ -43,13 +43,15 @@ export default {
     },
 
     inviteButtonContainer: {
-        zIndex: 1,
-        paddingRight: 15
+        // zIndex: 1,
+        // paddingRight: 15
+        marginHorizontal: 10,
     },
     inviteButton: {
         iconStyle: {
             color: BaseTheme.palette.icon01,
-            fontSize: NAVBAR_BUTTON_SIZE
+            // height: '100%',
+            fontSize: 40
         },
         underlayColor: BaseTheme.spacing.underlay01,
     },
@@ -57,42 +59,48 @@ export default {
     lonelyButton: {
         alignItems: 'center',
         borderRadius: 6,
-        width: '90%',
+        width: '100%',
         flexDirection: 'row',
         height: BaseTheme.spacing[6],
         justifyContent: 'center',
         paddingHorizontal: 12
+
     },
 
     lonelyButtonComponents: {
-        marginHorizontal: 6
+        marginHorizontal: 6,
+        fontWeight: '500',
     },
 
     lonelyMeetingContainer: {
         alignSelf: 'stretch',
         alignItems: 'center',
         backgroundColor: 'rgba(0,0,0,0.4)',
-        height: 120,
+        // height: 120,
         marginLeft: '5%',
         marginRight: '5%',
         marginBottom: 10,
-        padding: BoxModel.padding * 2
+        padding: BoxModel.padding * 2,
+        borderRadius: 6,
     },
 
     lonelyMessage: {
-        paddingVertical: 12
+        paddingBottom: 12,
+
+
     },
 
     pipButtonContainer: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        zIndex: 1
+        marginRight: 5,
+        // position: 'absolute',
+        // top: 0,
+        // left: 0,
+        // zIndex: 1
     },
 
     pipButton: {
         iconStyle: {
-            padding: 10,
+            // padding: 10,
             color: BaseTheme.palette.icon01,
             fontSize: NAVBAR_BUTTON_SIZE
         },
@@ -100,9 +108,9 @@ export default {
     },
 
     navBarSafeView: {
-        left: 0,
         position: 'absolute',
-        right: 10,
+        left: 15,
+        right: 15,
         top: 20
     },
 
@@ -110,9 +118,9 @@ export default {
         alignItems: 'center',
         flex: 1,
         flexDirection: 'row',
-        height: 44,
-        justifyContent: 'space-around',
-        paddingHorizontal: 14
+        // height: 44,
+        // justifyContent: 'space-around',
+        // paddingHorizontal: 15
     },
 
     roomTimer: {
@@ -143,15 +151,16 @@ export default {
         borderTopLeftRadius: 3,
         flexShrink: 1,
         height: 40,
-        width: "85%",
+        // width: "85%",
         justifyContent: 'center',
         paddingHorizontal: 10,
-        marginLeft: 25
+        // marginLeft: 15
     },
 
     roomNameWrapper: {
         flexDirection: 'row',
-        marginHorizontal: 35
+        flex: 1,
+        marginHorizontal: 5
     },
 
     /**

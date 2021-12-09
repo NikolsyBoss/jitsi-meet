@@ -96,7 +96,7 @@ function Toolbox(props: Props) {
                         toggledStyles={backgroundToggledStyle}/>
                 }
 
-                {/*/!* { additionalButtons.has('raisehand') && (_reactionsEnabled*/}
+                {/* { additionalButtons.has('raisehand') && (_reactionsEnabled*/}
                 {/*    ? <ReactionsMenuButton*/}
                 {/*        styles = { buttonStylesBorderless }*/}
                 {/*        toggledStyles = { backgroundToggledStyle } />*/}

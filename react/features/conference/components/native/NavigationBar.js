@@ -79,7 +79,7 @@ const NavigationBar = (props: Props) => {
                 <Labels />
             </View>
             <View style = { styles.inviteButtonContainer }>
-                <InviteButton styles = { [styles.inviteButton, {width: 43, height: 43}] } />
+                <InviteButton styles = { styles.inviteButton } />
             </View>
         </View>
     );
