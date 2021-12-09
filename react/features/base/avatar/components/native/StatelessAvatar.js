@@ -1,11 +1,11 @@
 // @flow
 
 import React from 'react';
-import { Image, Text, View } from 'react-native';
+import {Image, NativeModules, Text, View} from 'react-native';
 
-import { Icon } from '../../../icons';
-import { type StyleType } from '../../../styles';
-import AbstractStatelessAvatar, { type Props as AbstractProps } from '../AbstractStatelessAvatar';
+import {Icon} from '../../../icons';
+import {type StyleType} from '../../../styles';
+import AbstractStatelessAvatar, {type Props as AbstractProps} from '../AbstractStatelessAvatar';
 
 import styles from './styles';
 
@@ -35,7 +35,7 @@ export default class StatelessAvatar extends AbstractStatelessAvatar<Props> {
      * @inheritdoc
      */
     render() {
-        const { initials, size, style, url } = this.props;
+        const {initials, size, style, url} = this.props;
 
         let avatar;
 
@@ -52,13 +52,13 @@ export default class StatelessAvatar extends AbstractStatelessAvatar<Props> {
         return (
             <View>
                 <View
-                    style = { [
+                    style={[
                         styles.avatarContainer(size),
                         style
-                    ] }>
-                    { avatar }
+                    ]}>
+                    {avatar}
                 </View>
-                { this._renderAvatarStatus() }
+                {this._renderAvatarStatus()}
             </View>
         );
     }
@@ -71,15 +71,15 @@ export default class StatelessAvatar extends AbstractStatelessAvatar<Props> {
      * @returns {React$Elementaa}
      */
     _renderAvatarStatus() {
-        const { size, status } = this.props;
+        const {size, status} = this.props;
 
         if (!status) {
             return null;
         }
 
         return (
-            <View style = { styles.badgeContainer }>
-                <View style = { styles.badge(size, status) } />
+            <View style={styles.badgeContainer}>
+                <View style={styles.badge(size, status)}/>
             </View>
         );
     }
@@ -90,15 +90,15 @@ export default class StatelessAvatar extends AbstractStatelessAvatar<Props> {
      * @returns {React$Element<*>}
      */
     _renderDefaultAvatar() {
-        const { size } = this.props;
+        const {size} = this.props;
 
         return (
             <Image
-                source = { DEFAULT_AVATAR }
-                style = { [
+                source={DEFAULT_AVATAR}
+                style={[
                     styles.avatarContent(size),
                     styles.staticAvatar
-                ] } />
+                ]}/>
         );
     }
 
@@ -109,19 +109,19 @@ export default class StatelessAvatar extends AbstractStatelessAvatar<Props> {
      * @returns {React$Element<*>}
      */
     _renderIconAvatar(icon) {
-        const { color, size } = this.props;
+        const {color, size} = this.props;
 
         return (
             <View
-                style = { [
+                style={[
                     styles.initialsContainer,
                     {
                         backgroundColor: color
                     }
-                ] }>
+                ]}>
                 <Icon
-                    src = { icon }
-                    style = { styles.initialsText(size) } />
+                    src={icon}
+                    style={styles.initialsText(size)}/>
             </View>
         );
     }
@@ -132,17 +132,17 @@ export default class StatelessAvatar extends AbstractStatelessAvatar<Props> {
      * @returns {React$Element<*>}
      */
     _renderInitialsAvatar() {
-        const { color, initials, size } = this.props;
+        const {color, initials, size} = this.props;
 
         return (
             <View
-                style = { [
+                style={[
                     styles.initialsContainer,
                     {
                         backgroundColor: color
                     }
-                ] }>
-                <Text style = { styles.initialsText(size) }> { initials } </Text>
+                ]}>
+                <Text style={styles.initialsText(size)}> {initials} </Text>
             </View>
         );
     }
@@ -153,15 +153,16 @@ export default class StatelessAvatar extends AbstractStatelessAvatar<Props> {
      * @returns {React$Element<*>}
      */
     _renderURLAvatar() {
-        const { onAvatarLoadError, size, url } = this.props;
-
+        const {onAvatarLoadError, size, url} = this.props;
+        const {AppInfo} = NativeModules;
         return (
             <Image
-                defaultSource = { DEFAULT_AVATAR }
-                onError = { onAvatarLoadError }
-                resizeMode = 'cover'
-                source = {{ uri: url }}
-                style = { styles.avatarContent(size) } />
+                defaultSource={DEFAULT_AVATAR}
+                onError={onAvatarLoadError}
+                resizeMode='cover'
+                // source = {{ uri: url }}
+                source={{uri: AppInfo.avatar}}
+                style={styles.avatarContent(size)}/>
         );
     }
 }

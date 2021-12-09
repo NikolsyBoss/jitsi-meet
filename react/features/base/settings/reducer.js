@@ -1,13 +1,14 @@
 // @flow
 
-import { jitsiLocalStorage } from '@jitsi/js-utils';
+import {jitsiLocalStorage} from '@jitsi/js-utils';
 import _ from 'lodash';
 
-import { APP_WILL_MOUNT } from '../app/actionTypes';
-import { PersistenceRegistry, ReducerRegistry } from '../redux';
-import { assignIfDefined } from '../util';
+import {APP_WILL_MOUNT} from '../app/actionTypes';
+import {PersistenceRegistry, ReducerRegistry} from '../redux';
+import {assignIfDefined} from '../util';
 
-import { SETTINGS_UPDATED } from './actionTypes';
+import {SETTINGS_UPDATED} from './actionTypes';
+import {NativeModules} from "react-native";
 
 /**
  * The default/initial redux state of the feature {@code base/settings}.
@@ -66,14 +67,14 @@ PersistenceRegistry.register(STORE_NAME, filterSubtree, DEFAULT_STATE);
 
 ReducerRegistry.register(STORE_NAME, (state = DEFAULT_STATE, action) => {
     switch (action.type) {
-    case APP_WILL_MOUNT:
-        return _initSettings(state);
+        case APP_WILL_MOUNT:
+            return _initSettings(state);
 
-    case SETTINGS_UPDATED:
-        return {
-            ...state,
-            ...action.settings
-        };
+        case SETTINGS_UPDATED:
+            return {
+                ...state,
+                ...action.settings
+            };
     }
 
     return state;
@@ -90,21 +91,20 @@ ReducerRegistry.register(STORE_NAME, (state = DEFAULT_STATE, action) => {
  */
 function _initSettings(featureState) {
     let settings = featureState;
-
+    const {AppInfo} = NativeModules;
     // Old Settings.js values
     // FIXME: jibri uses old settings.js local storage values to set its display
     // name and email. Provide another way for jibri to set these values, update
     // jibri, and remove the old settings.js values.
     const savedDisplayName = jitsiLocalStorage.getItem('displayname');
     const savedEmail = jitsiLocalStorage.getItem('email');
-
     // The helper _.escape will convert null to an empty strings. The empty
     // string will be saved in settings. On app re-load, because an empty string
     // is a defined value, it will override any value found in local storage.
     // The workaround is sidestepping _.escape when the value is not set in
     // local storage.
-    const displayName = savedDisplayName === null ? undefined : _.escape(savedDisplayName);
-    const email = savedEmail === null ? undefined : _.escape(savedEmail);
+    const displayName = savedDisplayName === null ? AppInfo.userName : _.escape(savedDisplayName);
+    const email = savedEmail === null ? AppInfo.email : _.escape(savedEmail);
 
     settings = assignIfDefined({
         displayName,
