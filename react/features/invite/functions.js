@@ -548,7 +548,8 @@ export function getShareInfoText(
         roomUrl = `<a href="${roomUrl}">${roomUrl}</a>`;
     }
 
-    let infoText = i18next.t('share.mainText', { roomUrl });
+    // let infoText = i18next.t('share.mainText', { roomUrl });
+    let infoText = roomUrl;
 
     if (includeDialInfo) {
         const { room } = parseURIString(inviteUrl);
@@ -608,9 +609,10 @@ export function getShareInfoText(
                         = `<a href="${dialInfoPageUrl}">${dialInfoPageUrl}</a>`;
                 }
 
-                infoText += i18next.t('share.dialInfoText', {
-                    defaultDialInNumber,
-                    dialInfoPageUrl });
+                // infoText += i18next.t('share.dialInfoText', {
+                //     defaultDialInNumber,
+                //     dialInfoPageUrl });
+
 
                 return infoText;
             });
