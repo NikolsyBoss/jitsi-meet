@@ -72,15 +72,22 @@ public class JitsiMeetActivity extends AppCompatActivity
     }
 
     // Overrides
-    //
+    public static String name = "";
+    public static String email = "";
+    public static String image = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_jitsi_meet);
 
         registerForBroadcastMessages();
+
+        Intent intent = getIntent();
+        name = intent.getStringExtra("name", "Nikolay Wilosn");
+        email = intent.getStringExtra("email", "mikolaXd@gmail.com");
+        image = intent.getStringExtra("image", "https://api.efkovideo.top/media/accounts/profiles/test_p6pObix.jpg");
+
 
         if (!extraInitialize()) {
             initialize();

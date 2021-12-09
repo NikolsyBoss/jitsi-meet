@@ -85,4 +85,19 @@ class AppInfoModule
     public String getName() {
         return NAME;
     }
+
+    @ReactMethod
+    public String getName() {
+        return JitsiMeetActivity.name;
+    }
+
+    @ReactMethod
+    public String getEmail() {
+        return JitsiMeetActivity.email;
+    }
+
+    @ReactMethod
+    public String getImage() {
+        return JitsiMeetActivity.image;
+    }
 }
