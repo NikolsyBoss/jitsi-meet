@@ -6,12 +6,13 @@ import React from 'react';
 import {Platform} from 'react-native';
 
 import {
-    Icon,
-    IconClose,
-    IconHelp,
-    IconHome,
-    IconInfo,
-    IconSettings
+  EFCOgoBack,
+  Icon,
+  IconClose,
+  IconHelp,
+  IconHome,
+  IconInfo,
+  IconSettings
 } from '../../../base/icons';
 import BaseTheme from '../../../base/ui/components/BaseTheme';
 
@@ -22,26 +23,26 @@ import HeaderNavigationButton from './HeaderNavigationButton';
  * Navigation container theme.
  */
 export const navigationContainerTheme = {
-    colors: {
-        background: BaseTheme.palette.ui12
-    }
+  colors: {
+    background: BaseTheme.palette.ui12
+  }
 };
 
 /**
  * Default modal transition for the current platform.
  */
 export const conferenceModalPresentation = Platform.select({
-    ios: TransitionPresets.ModalPresentationIOS,
-    default: TransitionPresets.DefaultTransition
+  ios: TransitionPresets.ModalPresentationIOS,
+  default: TransitionPresets.DefaultTransition
 });
 
 /**
  * Screen options and transition types.
  */
 export const fullScreenOptions = {
-    ...TransitionPresets.ModalTransition,
-    gestureEnabled: false,
-    headerShown: false
+  ...TransitionPresets.ModalTransition,
+  gestureEnabled: false,
+  headerShown: false
 };
 
 
@@ -49,24 +50,24 @@ export const fullScreenOptions = {
  * Dial-IN Info screen options and transition types.
  */
 export const dialInSummaryScreenOptions = {
-    ...TransitionPresets.ModalTransition,
-    gestureEnabled: true,
-    headerShown: true,
-    headerStyle: {
-        backgroundColor: BaseTheme.palette.screen01Header
-    },
-    headerTitleStyle: {
-        color: BaseTheme.palette.text01
-    }
+  ...TransitionPresets.ModalTransition,
+  gestureEnabled: true,
+  headerShown: true,
+  headerStyle: {
+    backgroundColor: BaseTheme.palette.screen01Header
+  },
+  headerTitleStyle: {
+    color: BaseTheme.palette.text01
+  }
 };
 
 /**
  * Drawer navigator screens options and transition types.
  */
 export const drawerNavigatorScreenOptions = {
-    ...TransitionPresets.ModalTransition,
-    gestureEnabled: true,
-    headerShown: false
+  ...TransitionPresets.ModalTransition,
+  gestureEnabled: true,
+  headerShown: false
 };
 
 
@@ -74,162 +75,163 @@ export const drawerNavigatorScreenOptions = {
  * Drawer screen options and transition types.
  */
 export const drawerScreenOptions = {
-    ...TransitionPresets.ModalTransition,
+  ...TransitionPresets.ModalTransition,
 
-    // elevation: 0, // remove shadow on Android
-    // shadowOpacity: 0, // remove shadow on iOS
-    gestureEnabled: true,
-    headerShown: false,
-    headerStyle: {
-        elevation: 0,
-        backgroundColor: 'rgba(20, 24, 44, 0.6)'
-    }
+  // elevation: 0, // remove shadow on Android
+  // shadowOpacity: 0, // remove shadow on iOS
+  gestureEnabled: true,
+  headerShown: false,
+  headerStyle: {
+    elevation: 0,
+    backgroundColor: 'rgba(20, 24, 44, 0.6)'
+  }
 };
 
 /**
  * Screen options for welcome page.
  */
 export const welcomeScreenOptions = {
-    ...drawerScreenOptions,
-    drawerIcon: ({focused}) => (
-        <Icon
-            color={focused ? BaseTheme.palette.screen01Header : BaseTheme.palette.field01Disabled}
-            size={20}
-            src={IconHome}/>
-    ),
-    headerTitleStyle: {
-        color: BaseTheme.palette.screen01Header
-    }
+  ...drawerScreenOptions,
+  drawerIcon: ({focused}) => (
+    <Icon
+      color={focused ? BaseTheme.palette.screen01Header : BaseTheme.palette.field01Disabled}
+      size={20}
+      src={IconHome}/>
+  ),
+  headerTitleStyle: {
+    color: BaseTheme.palette.screen01Header
+  }
 };
 
 /**
  * Screen options for settings screen.
  */
 export const settingsScreenOptions = {
-    ...drawerScreenOptions,
-    drawerIcon: ({focused}) => (
-        <Icon
-            color={focused ? BaseTheme.palette.screen01Header : BaseTheme.palette.field01Disabled}
-            size={20}
-            src={IconSettings}/>
-    ),
-    headerTitleStyle: {
-        color: BaseTheme.palette.text01
-    }
+  ...drawerScreenOptions,
+  drawerIcon: ({focused}) => (
+    <Icon
+      color={focused ? BaseTheme.palette.screen01Header : BaseTheme.palette.field01Disabled}
+      size={20}
+      src={IconSettings}/>
+  ),
+  headerTitleStyle: {
+    color: BaseTheme.palette.text01
+  }
 };
 
 /**
  * Screen options for terms/privacy screens.
  */
 export const termsAndPrivacyScreenOptions = {
-    ...drawerScreenOptions,
-    drawerIcon: ({focused}) => (
-        <Icon
-            color={focused ? BaseTheme.palette.screen01Header : BaseTheme.palette.field01Disabled}
-            size={20}
-            src={IconInfo}/>
-    ),
-    headerTitleStyle: {
-        color: BaseTheme.palette.text01
-    }
+  ...drawerScreenOptions,
+  drawerIcon: ({focused}) => (
+    <Icon
+      color={focused ? BaseTheme.palette.screen01Header : BaseTheme.palette.field01Disabled}
+      size={20}
+      src={IconInfo}/>
+  ),
+  headerTitleStyle: {
+    color: BaseTheme.palette.text01
+  }
 };
 
 /**
  * Screen options for help screen.
  */
 export const helpScreenOptions = {
-    ...drawerScreenOptions,
-    drawerIcon: ({focused}) => (
-        <Icon
-            color={focused ? BaseTheme.palette.screen01Header : BaseTheme.palette.field01Disabled}
-            size={20}
-            src={IconHelp}/>
-    ),
-    headerTitleStyle: {
-        color: BaseTheme.palette.text01
-    }
+  ...drawerScreenOptions,
+  drawerIcon: ({focused}) => (
+    <Icon
+      color={focused ? BaseTheme.palette.screen01Header : BaseTheme.palette.field01Disabled}
+      size={20}
+      src={IconHelp}/>
+  ),
+  headerTitleStyle: {
+    color: BaseTheme.palette.text01
+  }
 };
 
 /**
  * Screen options for conference.
  */
 export const conferenceScreenOptions = {
-    ...fullScreenOptions
+  ...fullScreenOptions
 };
 
 /**
  * Screen options for lobby modal.
  */
 export const lobbyScreenOptions = {
-    ...fullScreenOptions
+  ...fullScreenOptions
 };
 
 /**
  * Tab bar options for chat screen.
  */
 export const chatTabBarOptions = {
-    activeTintColor: BaseTheme.palette.screen01Header,
-    labelStyle: {
-        fontSize: BaseTheme.typography.labelRegular.fontSize
-    },
-    inactiveTintColor: BaseTheme.palette.field02Disabled,
-    indicatorStyle: {
-        backgroundColor: BaseTheme.palette.screen01Header
-    }
+  activeTintColor: BaseTheme.palette.screen01Header,
+  labelStyle: {
+    fontSize: BaseTheme.typography.labelRegular.fontSize
+  },
+  inactiveTintColor: BaseTheme.palette.field02Disabled,
+  indicatorStyle: {
+    backgroundColor: BaseTheme.palette.screen01Header
+  }
 };
 
 /**
  * Screen options for presentation type modals.
  */
 export const presentationScreenOptions = {
-    ...conferenceModalPresentation,
-    headerBackTitleVisible: false,
-    headerLeft: () => (
-        <HeaderNavigationButton
-            onPress={goBack}
-            src={IconClose}/>
-    ),
-    headerStatusBarHeight: 0,
-    headerStyle: {
-        backgroundColor: BaseTheme.palette.screen01Header
-    },
-    headerTitleStyle: {
-        color: BaseTheme.palette.text01
-    }
+  ...conferenceModalPresentation,
+  headerShown: true,
+  headerBackTitleVisible: false,
+  headerLeft: () => (
+    <HeaderNavigationButton
+      onPress={goBack}
+      src={EFCOgoBack}/>
+  ),
+  headerStatusBarHeight: 0,
+  headerStyle: {
+    backgroundColor: BaseTheme.palette.screen01Header
+  },
+  headerTitleStyle: {
+    color: BaseTheme.palette.text01,
+  }
 };
 
 /**
  * Screen options for chat.
  */
 export const chatScreenOptions = {
-    ...presentationScreenOptions
+  ...presentationScreenOptions
 };
 
 /**
  * Screen options for invite modal.
  */
 export const inviteScreenOptions = {
-    ...presentationScreenOptions
+  ...presentationScreenOptions
 };
 
 /**
  * Screen options for participants modal.
  */
 export const participantsScreenOptions = {
-    ...presentationScreenOptions
+  ...presentationScreenOptions
 };
 
 /**
  * Screen options for shared document.
  */
 export const sharedDocumentScreenOptions = {
-    ...TransitionPresets.DefaultTransition,
-    headerBackTitleVisible: false,
-    headerShown: true,
-    headerStyle: {
-        backgroundColor: BaseTheme.palette.screen01Header
-    },
-    headerTitleStyle: {
-        color: BaseTheme.palette.text01
-    }
+  ...TransitionPresets.DefaultTransition,
+  headerBackTitleVisible: false,
+  headerShown: true,
+  headerStyle: {
+    backgroundColor: BaseTheme.palette.screen01Header
+  },
+  headerTitleStyle: {
+    color: BaseTheme.palette.text01
+  }
 };

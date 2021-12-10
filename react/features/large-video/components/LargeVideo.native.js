@@ -146,6 +146,7 @@ class LargeVideo extends PureComponent<Props, State> {
  * @private
  * @returns {Props}
  */
+
 function _mapStateToProps(state) {
     const { participantId } = state['features/large-video'];
     const participant = getParticipantById(state, participantId);

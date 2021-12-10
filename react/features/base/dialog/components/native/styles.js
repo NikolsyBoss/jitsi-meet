@@ -36,6 +36,13 @@ export const bottomSheetStyles = {
     scrollView: {
         paddingHorizontal: 0
     },
+	absolute: {
+		position: "absolute",
+		top: 0,
+		left: 0,
+		bottom: 0,
+		right: 0
+	},
 
     /**
      * Style for the container of the sheet.
@@ -107,15 +114,16 @@ export const brandedDialog = {
     overlay: {
         ...StyleSheet.absoluteFillObject,
         alignItems: 'center',
-        backgroundColor: 'rgba(127, 127, 127, 0.6)',
+        backgroundColor: ColorPalette.darkBackground,
         flexDirection: 'row',
         justifyContent: 'center',
         padding: 30
     },
 
     overlayTouchable: {
-        ...StyleSheet.absoluteFillObject
-    }
+        ...StyleSheet.absoluteFillObject,
+
+	 }
 };
 
 /**
@@ -203,7 +211,7 @@ ColorSchemeRegistry.register('BottomSheet', {
      * Bottom sheet's base style.
      */
     sheet: {
-        backgroundColor: 'rgba(0,0,0,0.5)',
+        backgroundColor: ColorPalette.darkBackground,
         borderTopLeftRadius: 16,
         borderTopRightRadius: 16
     },
@@ -212,14 +220,14 @@ ColorSchemeRegistry.register('BottomSheet', {
      * Bottom sheet's base style with header.
      */
     sheetHeader: {
-        backgroundColor: 'rgba(0,0,0,0.5)',
+        backgroundColor: ColorPalette.darkBackground,
     },
 
     /**
      * Bottom sheet's background color with footer.
      */
     sheetFooter: {
-        backgroundColor: 'rgba(0,0,0,0.5)',
+        backgroundColor: ColorPalette.darkBackground,
     }
 });
 

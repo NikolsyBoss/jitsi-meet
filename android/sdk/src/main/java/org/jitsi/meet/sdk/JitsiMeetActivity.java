@@ -74,7 +74,7 @@ public class JitsiMeetActivity extends AppCompatActivity
     // Overrides
     public static String name = "Nikolay Wilosn";
     public static String email = "mikolaXd@gmail.com";
-    public static String image = "https://api.efkovideo.top/media/accounts/profiles/test_p6pObix.jpg";
+    public static String image = "https://api.efkovideo.top/media/accounts/profiles/default.png";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,13 +84,13 @@ public class JitsiMeetActivity extends AppCompatActivity
         registerForBroadcastMessages();
 
         Bundle extras = getIntent().getExtras();
-        /*if(extras != null) {
-            name = extras.getString("name", "Nikolay Wilosn");
-            email = extras.getString("email", "mikolaXd@gmail.com");
-            image = extras.getString("image", "https://api.efkovideo.top/media/accounts/profiles/test_p6pObix.jpg");
-        }else{
-            finish();
-        }*/
+//        if(extras != null) {
+//            name = extras.getString("name", "Nikolay Wilosn");
+//            email = extras.getString("email", "mikolaXd@gmail.com");
+//            image = extras.getString("image", "https://api.efkovideo.top/media/accounts/profiles/default.png");
+//        }else{
+//            finish();
+//        }
 
         if (!extraInitialize()) {
             initialize();

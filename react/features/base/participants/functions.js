@@ -206,6 +206,7 @@ export function getParticipantCountWithFake(stateful: Object | Function) {
  * @param {string} id - The ID of the participant's display name to retrieve.
  * @returns {string}
  */
+
 export function getParticipantDisplayName(
         stateful: Object | Function,
         id: string) {
@@ -236,6 +237,7 @@ export function getParticipantDisplayName(
  * @param {string} id - The id of the participant.
  * @returns {string} - The presence status.
  */
+
 export function getParticipantPresenceStatus(
         stateful: Object | Function, id: string) {
     if (!id) {

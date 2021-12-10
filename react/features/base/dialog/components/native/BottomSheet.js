@@ -1,14 +1,21 @@
 // @flow
 
-import React, { PureComponent, type Node } from 'react';
-import { PanResponder, SafeAreaView, ScrollView, View } from 'react-native';
+import React, {PureComponent, type Node} from 'react';
+import {
+	PanResponder,
+	SafeAreaView,
+	ScrollView,
+	View,
+	ImageBackground
+} from 'react-native';
 
-import { ColorSchemeRegistry } from '../../../color-scheme';
-import { SlidingView } from '../../../react';
-import { connect } from '../../../redux';
-import { StyleType } from '../../../styles';
+import {ColorSchemeRegistry} from '../../../color-scheme';
+import {SlidingView} from '../../../react';
+import {connect} from '../../../redux';
+import {StyleType} from '../../../styles';
 
-import { bottomSheetStyles as styles } from './styles';
+import {bottomSheetStyles as styles} from './styles';
+import {BlurView, VibrancyView} from "@react-native-community/blur";
 
 /**
  * Minimal distance that needs to be moved by the finger to consider it a swipe.
@@ -25,190 +32,195 @@ const GESTURE_SPEED_THRESHOLD = 0.2;
  */
 type Props = {
 
-    /**
-     * The height of the screen.
-     */
-    _height: number,
+	/**
+	 * The height of the screen.
+	 */
+	_height: number,
 
-    /**
-     * The color-schemed stylesheet of the feature.
-     */
-    _styles: StyleType,
+	/**
+	 * The color-schemed stylesheet of the feature.
+	 */
+	_styles: StyleType,
 
-    /**
-     * Whether to add padding to scroll view.
-     */
-    addScrollViewPadding?: boolean,
+	/**
+	 * Whether to add padding to scroll view.
+	 */
+	addScrollViewPadding?: boolean,
 
-    /**
-     * The children to be displayed within this component.
-     */
-    children: Node,
+	/**
+	 * The children to be displayed within this component.
+	 */
+	children: Node,
 
-    /**
-     * Handler for the cancel event, which happens when the user dismisses
-     * the sheet.
-     */
-    onCancel: ?Function,
+	/**
+	 * Handler for the cancel event, which happens when the user dismisses
+	 * the sheet.
+	 */
+	onCancel: ?Function,
 
-    /**
-     * Callback to be attached to the custom swipe event of the BottomSheet.
-     */
-    onSwipe?: Function,
+	/**
+	 * Callback to be attached to the custom swipe event of the BottomSheet.
+	 */
+	onSwipe?: Function,
 
-    /**
-     * Function to render a bottom sheet header element, if necessary.
-     */
-    renderHeader: ?Function,
+	/**
+	 * Function to render a bottom sheet header element, if necessary.
+	 */
+	renderHeader: ?Function,
 
-    /**
-     * Function to render a bottom sheet footer element, if necessary.
-     */
-    renderFooter: ?Function,
+	/**
+	 * Function to render a bottom sheet footer element, if necessary.
+	 */
+	renderFooter: ?Function,
 
-    /**
-     * Whether to show sliding view or not.
-     */
-    showSlidingView?: boolean,
+	/**
+	 * Whether to show sliding view or not.
+	 */
+	showSlidingView?: boolean,
 
-    /**
-     * The component's external style.
-     */
-    style: Object
+	/**
+	 * The component's external style.
+	 */
+	style: Object
 };
 
 /**
  * A component emulating Android's BottomSheet.
  */
+
 class BottomSheet extends PureComponent<Props> {
-    panResponder: Object;
+	panResponder: Object;
 
-    /**
-     * Default values for {@code BottomSheet} component's properties.
-     *
-     * @static
-     */
-    static defaultProps = {
-        addScrollViewPadding: true,
-        showSlidingView: true
-    };
+	/**
+	 * Default values for {@code BottomSheet} component's properties.
+	 *
+	 * @static
+	 */
+	static defaultProps = {
+		addScrollViewPadding: true,
+		showSlidingView: true
+	};
 
-    /**
-     * Instantiates a new component.
-     *
-     * @inheritdoc
-     */
-    constructor(props: Props) {
-        super(props);
+	/**
+	 * Instantiates a new component.
+	 *
+	 * @inheritdoc
+	 */
+	constructor(props: Props) {
+		super(props);
 
-        this.panResponder = PanResponder.create({
-            onStartShouldSetPanResponder: this._onShouldSetResponder.bind(this),
-            onMoveShouldSetPanResponder: this._onShouldSetResponder.bind(this),
-            onPanResponderRelease: this._onGestureEnd.bind(this)
-        });
-    }
+		this.panResponder = PanResponder.create({
+			onStartShouldSetPanResponder: this._onShouldSetResponder.bind(this),
+			onMoveShouldSetPanResponder: this._onShouldSetResponder.bind(this),
+			onPanResponderRelease: this._onGestureEnd.bind(this)
+		});
+	}
 
-    /**
-     * Implements React's {@link Component#render()}.
-     *
-     * @inheritdoc
-     * @returns {ReactElement}
-     */
-    render() {
-        const {
-            _height,
-            _styles,
-            addScrollViewPadding,
-            renderHeader,
-            renderFooter,
-            showSlidingView,
-            style
-        } = this.props;
+	/**
+	 * Implements React's {@link Component#render()}.
+	 *
+	 * @inheritdoc
+	 * @returns {ReactElement}
+	 */
+	render() {
+		const {
+			_height,
+			_styles,
+			addScrollViewPadding,
+			renderHeader,
+			renderFooter,
+			showSlidingView,
+			style
+		} = this.props;
 
-        return (
-            <SlidingView
-                accessibilityRole = 'menu'
-                accessibilityViewIsModal = { true }
-                onHide = { this.props.onCancel }
-                position = 'bottom'
-                show = { showSlidingView }>
-                <View
-                    pointerEvents = 'box-none'
-                    style = { styles.sheetContainer }>
-                    <View
-                        pointerEvents = 'box-none'
-                        style = { styles.sheetAreaCover } />
-                    { renderHeader && renderHeader() }
-                    <SafeAreaView
-                        style = { [
-                            styles.sheetItemContainer,
-                            renderHeader
-                                ? _styles.sheetHeader
-                                : _styles.sheet,
-                            renderFooter && _styles.sheetFooter,
-                            style,
-                            {
-                                maxHeight: _height - 100
-                            }
-                        ] }
-                        { ...this.panResponder.panHandlers }>
-                        <ScrollView
-                            bounces = { false }
-                            showsVerticalScrollIndicator = { false }
-                            style = { [
-                                renderFooter && _styles.sheet,
-                                addScrollViewPadding && styles.scrollView,
-                            ] } >
-                            { this.props.children }
-                        </ScrollView>
-                        { renderFooter && renderFooter() }
-                    </SafeAreaView>
-                </View>
-            </SlidingView>
-        );
-    }
+		return (
+			<SlidingView
+				accessibilityRole='menu'
+				accessibilityViewIsModal={true}
+				onHide={this.props.onCancel}
+				position='bottom'
+				show={showSlidingView}>
+				<View
+					pointerEvents='box-none'
+					style={styles.sheetContainer}>
+					<View
+						pointerEvents='box-none'
+						style={styles.sheetAreaCover}/>
+					{renderHeader && renderHeader()}
+					<SafeAreaView
+						style={[
+							styles.sheetItemContainer,
+							renderHeader
+								? _styles.sheetHeader
+								: _styles.sheet,
+							renderFooter && _styles.sheetFooter,
+							style,
+							{
+								maxHeight: _height - 100
+							}
+						]}
+						{...this.panResponder.panHandlers}>
 
-    /**
-     * Callback to handle a gesture end event.
-     *
-     * @param {Object} evt - The native gesture event.
-     * @param {Object} gestureState - The gesture state.
-     * @returns {void}
-     */
-    _onGestureEnd(evt, gestureState) {
-        const verticalSwipe = Math.abs(gestureState.vy) > Math.abs(gestureState.vx)
-            && Math.abs(gestureState.vy) > GESTURE_SPEED_THRESHOLD;
+						<ScrollView
+							bounces={false}
+							showsVerticalScrollIndicator={false}
+							style={[
+								renderFooter && _styles.sheet,
+								addScrollViewPadding && styles.scrollView,
+							]}>
 
-        if (verticalSwipe) {
-            const direction = gestureState.vy > 0 ? 'down' : 'up';
-            const { onCancel, onSwipe } = this.props;
-            let isSwipeHandled = false;
+							{this.props.children}
 
-            if (onSwipe) {
-                isSwipeHandled = onSwipe(direction);
-            }
+						</ScrollView>
 
-            if (direction === 'down' && !isSwipeHandled) {
-                // Swipe down is a special gesture that can be used to close the
-                // BottomSheet, so if the swipe is not handled by the parent
-                // component, we consider it as a request to close.
-                onCancel && onCancel();
-            }
-        }
-    }
+						{renderFooter && renderFooter()}
+					</SafeAreaView>
+				</View>
+			</SlidingView>
+		);
+	}
 
-    /**
-     * Returns true if the pan responder should activate, false otherwise.
-     *
-     * @param {Object} evt - The native gesture event.
-     * @param {Object} gestureState - The gesture state.
-     * @returns {boolean}
-     */
-    _onShouldSetResponder({ nativeEvent }, gestureState) {
-        return nativeEvent.touches.length === 1
-            && Math.abs(gestureState.dx) > GESTURE_DISTANCE_THRESHOLD
-            && Math.abs(gestureState.dy) > GESTURE_DISTANCE_THRESHOLD;
-    }
+	/**
+	 * Callback to handle a gesture end event.
+	 *
+	 * @param {Object} evt - The native gesture event.
+	 * @param {Object} gestureState - The gesture state.
+	 * @returns {void}
+	 */
+	_onGestureEnd(evt, gestureState) {
+		const verticalSwipe = Math.abs(gestureState.vy) > Math.abs(gestureState.vx)
+			&& Math.abs(gestureState.vy) > GESTURE_SPEED_THRESHOLD;
+
+		if (verticalSwipe) {
+			const direction = gestureState.vy > 0 ? 'down' : 'up';
+			const {onCancel, onSwipe} = this.props;
+			let isSwipeHandled = false;
+
+			if (onSwipe) {
+				isSwipeHandled = onSwipe(direction);
+			}
+
+			if (direction === 'down' && !isSwipeHandled) {
+				// Swipe down is a special gesture that can be used to close the
+				// BottomSheet, so if the swipe is not handled by the parent
+				// component, we consider it as a request to close.
+				onCancel && onCancel();
+			}
+		}
+	}
+
+	/**
+	 * Returns true if the pan responder should activate, false otherwise.
+	 *
+	 * @param {Object} evt - The native gesture event.
+	 * @param {Object} gestureState - The gesture state.
+	 * @returns {boolean}
+	 */
+	_onShouldSetResponder({nativeEvent}, gestureState) {
+		return nativeEvent.touches.length === 1
+			&& Math.abs(gestureState.dx) > GESTURE_DISTANCE_THRESHOLD
+			&& Math.abs(gestureState.dy) > GESTURE_DISTANCE_THRESHOLD;
+	}
 }
 
 /**
@@ -220,10 +232,10 @@ class BottomSheet extends PureComponent<Props> {
  * }}
  */
 function _mapStateToProps(state) {
-    return {
-        _styles: ColorSchemeRegistry.get(state, 'BottomSheet'),
-        _height: state['features/base/responsive-ui'].clientHeight
-    };
+	return {
+		_styles: ColorSchemeRegistry.get(state, 'BottomSheet'),
+		_height: state['features/base/responsive-ui'].clientHeight
+	};
 }
 
 export default connect(_mapStateToProps)(BottomSheet);

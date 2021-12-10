@@ -1,6 +1,8 @@
 // @flow
 
 // Default color palette
+import {ColorPalette} from "../styles";
+
 export const colors = {
     error03: '#7A141F',
     error04: '#A21B29',
@@ -8,7 +10,7 @@ export const colors = {
     error06: '#E04757',
     error08: '#EAA7AD',
 
-    primary01: '#00112D',
+    primary01: '#242736',
     primary02: '#00225A',
     primary03: '#003486',
     primary04: '#0045B3',
@@ -74,7 +76,7 @@ export const colorMap = {
     action04: 'primary11',
 
     // Screen header
-    screen01Header: 'primary10',
+    screen01Header: 'primary01',
 
     // Status bar
     status01Bar: 'primary11',

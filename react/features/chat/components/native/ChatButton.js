@@ -1,7 +1,7 @@
 // @flow
 
 import { CHAT_ENABLED, getFeatureFlag } from '../../../base/flags';
-import { IconChat, IconChatUnread } from '../../../base/icons';
+import {EFCOchatNewMgs, IconChat, IconChatUnread} from '../../../base/icons';
 import { connect } from '../../../base/redux';
 import {
     AbstractButton,
@@ -32,7 +32,7 @@ class ChatButton extends AbstractButton<Props, *> {
     accessibilityLabel = 'toolbar.accessibilityLabel.chat';
     icon = IconChat;
     label = 'toolbar.chat';
-    toggledIcon = IconChatUnread;
+    toggledIcon = EFCOchatNewMgs;
 
     /**
      * Handles clicking / pressing the button, and opens the appropriate dialog.

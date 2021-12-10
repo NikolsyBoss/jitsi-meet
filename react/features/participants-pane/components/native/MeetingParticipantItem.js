@@ -1,87 +1,94 @@
 // @flow
 
-import React, { PureComponent } from 'react';
+import React, {PureComponent} from 'react';
 
-import { translate } from '../../../base/i18n';
+import {translate} from '../../../base/i18n';
 import {
-    getLocalParticipant,
-    getParticipantDisplayName,
-    hasRaisedHand,
-    isParticipantModerator
+	getLocalParticipant,
+	getParticipantDisplayName,
+	hasRaisedHand,
+	isParticipantModerator
 } from '../../../base/participants';
-import { connect } from '../../../base/redux';
+import {connect} from '../../../base/redux';
 import {
-    isParticipantAudioMuted,
-    isParticipantVideoMuted
+	isParticipantAudioMuted,
+	isParticipantVideoMuted
 } from '../../../base/tracks';
-import { showConnectionStatus, showContextMenuDetails, showSharedVideoMenu } from '../../actions.native';
-import type { MediaState } from '../../constants';
-import { getParticipantAudioMediaState, getParticipantVideoMediaState } from '../../functions';
+import {
+	showConnectionStatus,
+	showContextMenuDetails,
+	showSharedVideoMenu
+} from '../../actions.native';
+import type {MediaState} from '../../constants';
+import {
+	getParticipantAudioMediaState,
+	getParticipantVideoMediaState
+} from '../../functions';
 
 import ParticipantItem from './ParticipantItem';
 
 
 type Props = {
 
-    /**
-     * Media state for audio.
-     */
-    _audioMediaState: MediaState,
+	/**
+	 * Media state for audio.
+	 */
+	_audioMediaState: MediaState,
 
-    /**
-     * Whether or not to disable the moderator indicator.
-     */
-    _disableModeratorIndicator: boolean,
+	/**
+	 * Whether or not to disable the moderator indicator.
+	 */
+	_disableModeratorIndicator: boolean,
 
-    /**
-     * The display name of the participant.
-     */
-    _displayName: string,
+	/**
+	 * The display name of the participant.
+	 */
+	_displayName: string,
 
-    /**
-     * True if the participant is fake.
-     */
-    _isFakeParticipant: boolean,
+	/**
+	 * True if the participant is fake.
+	 */
+	_isFakeParticipant: boolean,
 
-    /**
-     * Whether or not the user is a moderator.
-     */
-    _isModerator: boolean,
+	/**
+	 * Whether or not the user is a moderator.
+	 */
+	_isModerator: boolean,
 
-    /**
-     * True if the participant is the local participant.
-     */
-    _local: boolean,
+	/**
+	 * True if the participant is the local participant.
+	 */
+	_local: boolean,
 
-    /**
-     * Shared video local participant owner.
-     */
-    _localVideoOwner: boolean,
+	/**
+	 * Shared video local participant owner.
+	 */
+	_localVideoOwner: boolean,
 
-    /**
-     * The participant ID.
-     */
-    _participantID: string,
+	/**
+	 * The participant ID.
+	 */
+	_participantID: string,
 
-    /**
-     * True if the participant have raised hand.
-     */
-    _raisedHand: boolean,
+	/**
+	 * True if the participant have raised hand.
+	 */
+	_raisedHand: boolean,
 
-    /**
-     * Media state for video.
-     */
-    _videoMediaState: MediaState,
+	/**
+	 * Media state for video.
+	 */
+	_videoMediaState: MediaState,
 
-    /**
-     * The redux dispatch function.
-     */
-    dispatch: Function,
+	/**
+	 * The redux dispatch function.
+	 */
+	dispatch: Function,
 
-    /**
-     * The participant.
-     */
-    participant: ?Object
+	/**
+	 * The participant.
+	 */
+	participant: ?Object
 };
 
 /**
@@ -89,76 +96,76 @@ type Props = {
  */
 class MeetingParticipantItem extends PureComponent<Props> {
 
-    /**
-     * Creates new MeetingParticipantItem instance.
-     *
-     * @param {Props} props - The props of the component.
-     */
-    constructor(props: Props) {
-        super(props);
+	/**
+	 * Creates new MeetingParticipantItem instance.
+	 *
+	 * @param {Props} props - The props of the component.
+	 */
+	constructor(props: Props) {
+		super(props);
 
-        this._onPress = this._onPress.bind(this);
-    }
+		this._onPress = this._onPress.bind(this);
+	}
 
-    _onPress: () => void;
+	_onPress: () => void;
 
-    /**
-     * Handles MeetingParticipantItem press events.
-     *
-     * @returns {void}
-     */
-    _onPress() {
-        const {
-            _local,
-            _localVideoOwner,
-            _isFakeParticipant,
-            _participantID,
-            dispatch
-        } = this.props;
+	/**
+	 * Handles MeetingParticipantItem press events.
+	 *
+	 * @returns {void}
+	 */
+	_onPress() {
+		const {
+			_local,
+			_localVideoOwner,
+			_isFakeParticipant,
+			_participantID,
+			dispatch
+		} = this.props;
 
-        if (_isFakeParticipant && _localVideoOwner) {
-            dispatch(showSharedVideoMenu(_participantID));
-        } else if (!_isFakeParticipant) {
-            if (_local) {
-                dispatch(showConnectionStatus(_participantID));
-            } else {
-                dispatch(showContextMenuDetails(_participantID));
-            }
-        } // else no-op
-    }
+		if (_isFakeParticipant && _localVideoOwner) {
+			dispatch(showSharedVideoMenu(_participantID));
+		} else if (!_isFakeParticipant) {
+			if (_local) {
+				dispatch(showConnectionStatus(_participantID));
+			} else {
+				dispatch(showContextMenuDetails(_participantID));
+			}
+		} // else no-op
+	}
 
-    /**
-     * Implements React's {@link Component#render()}.
-     *
-     * @inheritdoc
-     * @returns {ReactElement}
-     */
-    render() {
-        const {
-            _audioMediaState,
-            _disableModeratorIndicator,
-            _displayName,
-            _isModerator,
-            _local,
-            _participantID,
-            _raisedHand,
-            _videoMediaState
-        } = this.props;
+	/**
+	 * Implements React's {@link Component#render()}.
+	 *
+	 * @inheritdoc
+	 * @returns {ReactElement}
+	 */
+	render() {
+		const {
+			_audioMediaState,
+			_disableModeratorIndicator,
+			_displayName,
+			_isModerator,
+			_local,
+			_participantID,
+			_raisedHand,
+			_videoMediaState
+		} = this.props;
 
-        return (
-            <ParticipantItem
-                audioMediaState = { _audioMediaState }
-                disableModeratorIndicator = { _disableModeratorIndicator }
-                displayName = { _displayName }
-                isKnockingParticipant = { false }
-                isModerator = { _isModerator }
-                local = { _local }
-                onPress = { this._onPress }
-                participantID = { _participantID }
-                raisedHand = { _raisedHand }
-                videoMediaState = { _videoMediaState } />
-        );
-    }
+		return (
+			<ParticipantItem
+				audioMediaState={_audioMediaState}
+				disableModeratorIndicator={_disableModeratorIndicator}
+				displayName={_displayName}
+				isKnockingParticipant={false}
+				isModerator={_isModerator}
+				local={_local}
+				onPress={this._onPress}
+				participantID={_participantID}
+				raisedHand={_raisedHand}
+				videoMediaState={_videoMediaState}/>
+		);
+	}
 }
 
 /**
@@ -170,28 +177,28 @@ class MeetingParticipantItem extends PureComponent<Props> {
  * @returns {Props}
  */
 function mapStateToProps(state, ownProps): Object {
-    const { participant } = ownProps;
-    const { ownerId } = state['features/shared-video'];
-    const localParticipantId = getLocalParticipant(state).id;
-    const _isAudioMuted = isParticipantAudioMuted(participant, state);
-    const _isVideoMuted = isParticipantVideoMuted(participant, state);
-    const audioMediaState = getParticipantAudioMediaState(participant, _isAudioMuted, state);
-    const videoMediaState = getParticipantVideoMediaState(participant, _isVideoMuted, state);
-    const { disableModeratorIndicator } = state['features/base/config'];
+	const {participant} = ownProps;
+	const {ownerId} = state['features/shared-video'];
+	const localParticipantId = getLocalParticipant(state).id;
+	const _isAudioMuted = isParticipantAudioMuted(participant, state);
+	const _isVideoMuted = isParticipantVideoMuted(participant, state);
+	const audioMediaState = getParticipantAudioMediaState(participant, _isAudioMuted, state);
+	const videoMediaState = getParticipantVideoMediaState(participant, _isVideoMuted, state);
+	const {disableModeratorIndicator} = state['features/base/config'];
 
-    return {
-        _audioMediaState: audioMediaState,
-        _disableModeratorIndicator: disableModeratorIndicator,
-        _displayName: getParticipantDisplayName(state, participant?.id),
-        _isAudioMuted,
-        _isFakeParticipant: Boolean(participant?.isFakeParticipant),
-        _isModerator: isParticipantModerator(participant),
-        _local: Boolean(participant?.local),
-        _localVideoOwner: Boolean(ownerId === localParticipantId),
-        _participantID: participant?.id,
-        _raisedHand: hasRaisedHand(participant),
-        _videoMediaState: videoMediaState
-    };
+	return {
+		_audioMediaState: audioMediaState,
+		_disableModeratorIndicator: disableModeratorIndicator,
+		_displayName:  { displayName }(state, participant?.id),
+		_isAudioMuted,
+		_isFakeParticipant: Boolean(participant?.isFakeParticipant),
+		_isModerator: isParticipantModerator(participant),
+		_local: Boolean(participant?.local),
+		_localVideoOwner: Boolean(ownerId === localParticipantId),
+		_participantID: participant?.id,
+		_raisedHand: hasRaisedHand(participant),
+		_videoMediaState: videoMediaState
+	};
 }
 
 

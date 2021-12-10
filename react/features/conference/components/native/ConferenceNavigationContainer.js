@@ -5,95 +5,151 @@ import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+
+import {Image, View, Text} from 'react-native';
 
 import {Chat, ChatAndPolls} from '../../../chat';
 import {SharedDocument} from '../../../etherpad';
 import AddPeopleDialog
-    from '../../../invite/components/add-people-dialog/native/AddPeopleDialog';
+	from '../../../invite/components/add-people-dialog/native/AddPeopleDialog';
 import LobbyScreen from '../../../lobby/components/native/LobbyScreen';
 import {ParticipantsPane} from '../../../participants-pane/components/native';
 import {getDisablePolls} from '../../functions';
 
 import Conference from './Conference';
 import {
-    conferenceNavigationRef
+	conferenceNavigationRef
 } from './ConferenceNavigationContainerRef';
 import {
-    chatScreenOptions,
-    conferenceScreenOptions,
-    inviteScreenOptions,
-    lobbyScreenOptions,
-    navigationContainerTheme,
-    participantsScreenOptions,
-    sharedDocumentScreenOptions
+	chatScreenOptions,
+	conferenceScreenOptions,
+	inviteScreenOptions,
+	lobbyScreenOptions,
+	navigationContainerTheme,
+	participantsScreenOptions, presentationScreenOptions,
+	sharedDocumentScreenOptions
 } from './ConferenceNavigatorScreenOptions';
 import {screen} from './routes';
+import styles from "./styles";
+import {
+	getLocalParticipant, getNormalizedDisplayName,
+	getParticipantCount,
+	getParticipantCountWithFake,
+	getParticipantDisplayName,
+	getRemoteParticipants
+} from "../../../base/participants";
+import BaseTheme from "../../../base/ui/components/BaseTheme";
+import {Avatar} from "../../../base/avatar";
+import {shouldRenderInviteButton} from "../../../participants-pane/functions";
+import {
+	getBreakoutRooms,
+	getCurrentRoomId
+} from "../../../breakout-rooms/functions";
+import {translate} from "../../../base/i18n";
+import {connect} from "../../../base/redux";
+import {withTheme} from "react-native-paper";
+import {getUnreadPollCount} from "../../../polls/functions";
 
 const ConferenceStack = createStackNavigator();
 
 
-const ConferenceNavigationContainer = () => {
-    const isPollsDisabled = useSelector(getDisablePolls);
-    const ChatScreen
-        = Chat;
-    // ? Chat
-    // : ChatAndPolls;
-    const chatScreenName
-        = isPollsDisabled
-        ? screen.conference.chat
-        : screen.conference.chatandpolls.main;
-    const {t} = useTranslation();
+const EfcoHeadChat = () => {
 
-    return (
-        <SafeAreaProvider>
-            <NavigationContainer
-                independent={true}
-                ref={conferenceNavigationRef}
-                theme={navigationContainerTheme}>
-                <ConferenceStack.Navigator
-                    initialRouteName={screen.conference.main}
-                    mode='modal'>
-                    <ConferenceStack.Screen
-                        component={Conference}
-                        name={screen.conference.main}
-                        options={conferenceScreenOptions}/>
-                    <ConferenceStack.Screen
-                        component={ChatScreen}
-                        name={chatScreenName}
-                        options={{
-                            ...chatScreenOptions,
-                            title: t('chat.title')
-                        }}/>
-                    <ConferenceStack.Screen
-                        component={ParticipantsPane}
-                        name={screen.conference.participants}
-                        options={{
-                            ...participantsScreenOptions,
-                            title: t('participantsPane.header')
-                        }}/>
-                    <ConferenceStack.Screen
-                        component={LobbyScreen}
-                        name={screen.lobby}
-                        options={lobbyScreenOptions}/>
-                    <ConferenceStack.Screen
-                        component={AddPeopleDialog}
-                        name={screen.conference.invite}
-                        options={{
-                            ...inviteScreenOptions,
-                            title: t('addPeople.add')
-                        }}/>
-                    <ConferenceStack.Screen
-                        component={SharedDocument}
-                        name={screen.conference.sharedDocument}
-                        options={{
-                            ...sharedDocumentScreenOptions,
-                            title: t('documentSharing.title')
-                        }}/>
-                </ConferenceStack.Navigator>
-            </NavigationContainer>
-        </SafeAreaProvider>
-    );
+	const localParticipant = useSelector(getLocalParticipant);
+	// const displayName = useSelector(getParticipantDisplayName());
+
+	return (
+		<View style={styles.efcoHeadContainer}>
+			{/*<Image style={styles.efcoHeaderAvatar} source={{*/}
+			{/*	uri: 'https://placeimg.com/640/480/people/sepia',*/}
+			{/*}}/>*/}
+			<Avatar
+				className='participant-avatar'
+				// displayName={displayName}
+				participantId={localParticipant.id}
+				size={40}/>
+			<Text style={styles.efcoHeadText}> {'displayName'}</Text>
+		</View>
+	)
+};
+
+function mapStateToProps(state) {
+	return {propOne: state.propOne};
+}
+
+
+const ConferenceNavigationContainer = () => {
+	const isPollsDisabled = useSelector(getDisablePolls);
+	const ChatScreen
+		= Chat;
+	// ? Chat
+	// : ChatAndPolls;
+	const chatScreenName
+		= isPollsDisabled
+		? screen.conference.chat
+		: screen.conference.chatandpolls.main;
+	const {t} = useTranslation();
+	const participantsCount = useSelector(getParticipantCount);
+
+	return (
+		<SafeAreaProvider>
+			<NavigationContainer
+				independent={true}
+				ref={conferenceNavigationRef}
+				theme={navigationContainerTheme}>
+				<ConferenceStack.Navigator
+					initialRouteName={screen.conference.main}
+					mode='modal'>
+					<ConferenceStack.Screen
+						component={Conference}
+						name={screen.conference.main}
+						options={conferenceScreenOptions}/>
+					<ConferenceStack.Screen
+						component={ChatScreen}
+						name={chatScreenName}
+						options={{
+							...chatScreenOptions,
+							headerStyle: {
+								...presentationScreenOptions.headerStyle,
+								height: 65,
+							},
+							headerTitle: () => <EfcoHeadChat/>
+							// title: t('chat.title')
+						}}/>
+					<ConferenceStack.Screen
+						component={ParticipantsPane}
+						name={screen.conference.participants}
+						options={{
+							...participantsScreenOptions,
+							headerTitleStyle: {
+								fontSize: 16,
+								color: 'white',
+							},
+							title: t('participantsPane.headings.participantsList', {count: participantsCount})
+						}}/>
+					<ConferenceStack.Screen
+						component={LobbyScreen}
+						name={screen.lobby}
+						options={lobbyScreenOptions}/>
+					<ConferenceStack.Screen
+						component={AddPeopleDialog}
+						name={screen.conference.invite}
+						options={{
+							...inviteScreenOptions,
+							title: t('addPeople.add')
+						}}/>
+					<ConferenceStack.Screen
+						component={SharedDocument}
+						name={screen.conference.sharedDocument}
+						options={{
+							...sharedDocumentScreenOptions,
+							title: t('documentSharing.title')
+						}}/>
+				</ConferenceStack.Navigator>
+			</NavigationContainer>
+		</SafeAreaProvider>
+	);
 };
 
 export default ConferenceNavigationContainer;

@@ -74,6 +74,7 @@ class ChatInputBar extends Component<Props, State> {
                     styles.inputBar,
                     this.state.addPadding ? styles.extraBarPadding : null
                 ] }>
+
                 <TextInput
                     blurOnSubmit = { false }
                     multiline = { false }

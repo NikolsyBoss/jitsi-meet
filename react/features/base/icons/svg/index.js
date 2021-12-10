@@ -140,4 +140,6 @@ export { default as IconYahoo } from './yahoo.svg';
 export { default as IconSip } from './sip.svg';
 
 export { default as EFCOIconSwitchCamera } from './newDisigne/efcoSwitchCamera.svg';
+export { default as EFCOgoBack } from './newDisigne/goBack.svg';
+export { default as EFCOchatNewMgs } from './newDisigne/unwrittenChatIcon.svg';
 

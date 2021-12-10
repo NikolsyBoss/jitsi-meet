@@ -15,6 +15,8 @@ import { setPrivateMessageRecipient } from '../../actions.any';
 import AbstractMessageRecipient, {
     type Props as AbstractProps
 } from '../AbstractMessageRecipient';
+import styles from "../../../conference/components/native/styles";
+import {Image} from "../../../base/react";
 
 type Props = AbstractProps & {
 
@@ -82,6 +84,7 @@ class MessageRecipient extends AbstractMessageRecipient<Props> {
 
         return (
             <View style = { _styles.messageRecipientContainer }>
+
                 <Text style = { _styles.messageRecipientText }>
                     { t('chat.messageTo', {
                         recipient: privateMessageRecipient.name
