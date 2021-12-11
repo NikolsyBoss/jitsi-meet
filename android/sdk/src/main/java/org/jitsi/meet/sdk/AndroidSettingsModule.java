@@ -3,7 +3,7 @@
  * {@link https://github.com/Aleksandern/react-native-android-settings-library}.
  */
 
-package one.effko.meet.sdk;
+package one.efko.meet.sdk;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;

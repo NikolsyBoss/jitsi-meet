@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package one.effko.meet.sdk;
+package one.efko.meet.sdk;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -23,7 +23,7 @@ import androidx.annotation.Nullable;
 
 import com.facebook.react.bridge.ReadableMap;
 
-import one.effko.meet.sdk.log.JitsiMeetLogger;
+import one.efko.meet.sdk.log.JitsiMeetLogger;
 
 import java.lang.reflect.Method;
 import java.util.Map;

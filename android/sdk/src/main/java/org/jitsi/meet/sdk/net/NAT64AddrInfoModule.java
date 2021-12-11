@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package one.effko.meet.sdk.net;
+package one.efko.meet.sdk.net;
 
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -21,7 +21,7 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.module.annotations.ReactModule;
 
-import one.effko.meet.sdk.log.JitsiMeetLogger;
+import one.efko.meet.sdk.log.JitsiMeetLogger;
 
 import java.net.UnknownHostException;
 

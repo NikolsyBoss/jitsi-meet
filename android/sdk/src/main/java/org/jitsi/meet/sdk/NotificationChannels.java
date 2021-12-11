@@ -1,4 +1,4 @@
-package one.effko.meet.sdk;
+package one.efko.meet.sdk;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package one.effko.meet.sdk;
+package one.efko.meet.sdk;
 
 import android.app.Notification;
 import android.app.Service;
@@ -27,7 +27,7 @@ import android.os.IBinder;
 
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-import one.effko.meet.sdk.log.JitsiMeetLogger;
+import one.efko.meet.sdk.log.JitsiMeetLogger;
 
 /**
  * This class implements an Android {@link Service}, a foreground one specifically, and it's

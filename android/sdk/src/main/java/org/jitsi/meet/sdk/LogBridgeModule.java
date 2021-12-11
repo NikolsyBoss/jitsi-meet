@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package one.effko.meet.sdk;
+package one.efko.meet.sdk;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.module.annotations.ReactModule;
 
-import one.effko.meet.sdk.log.JitsiMeetLogger;
+import one.efko.meet.sdk.log.JitsiMeetLogger;
 
 import javax.annotation.Nonnull;
 

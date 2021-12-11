@@ -18,15 +18,15 @@
 #import "JitsiMeetView+Private.h"
 
 // Events
-static NSString * const hangUpAction = @"one.effko.meet.HANG_UP";
-static NSString * const setAudioMutedAction = @"one.effko.meet.SET_AUDIO_MUTED";
-static NSString * const sendEndpointTextMessageAction = @"one.effko.meet.SEND_ENDPOINT_TEXT_MESSAGE";
-static NSString * const toggleScreenShareAction = @"one.effko.meet.TOGGLE_SCREEN_SHARE";
-static NSString * const retrieveParticipantsInfoAction = @"one.effko.meet.RETRIEVE_PARTICIPANTS_INFO";
-static NSString * const openChatAction = @"one.effko.meet.OPEN_CHAT";
-static NSString * const closeChatAction = @"one.effko.meet.CLOSE_CHAT";
-static NSString * const sendChatMessageAction = @"one.effko.meet.SEND_CHAT_MESSAGE";
-static NSString * const setVideoMutedAction = @"one.effko.meet.SET_VIDEO_MUTED";
+static NSString * const hangUpAction = @"one.efko.meet.HANG_UP";
+static NSString * const setAudioMutedAction = @"one.efko.meet.SET_AUDIO_MUTED";
+static NSString * const sendEndpointTextMessageAction = @"one.efko.meet.SEND_ENDPOINT_TEXT_MESSAGE";
+static NSString * const toggleScreenShareAction = @"one.efko.meet.TOGGLE_SCREEN_SHARE";
+static NSString * const retrieveParticipantsInfoAction = @"one.efko.meet.RETRIEVE_PARTICIPANTS_INFO";
+static NSString * const openChatAction = @"one.efko.meet.OPEN_CHAT";
+static NSString * const closeChatAction = @"one.efko.meet.CLOSE_CHAT";
+static NSString * const sendChatMessageAction = @"one.efko.meet.SEND_CHAT_MESSAGE";
+static NSString * const setVideoMutedAction = @"one.efko.meet.SET_VIDEO_MUTED";
 
 @implementation ExternalAPI
 

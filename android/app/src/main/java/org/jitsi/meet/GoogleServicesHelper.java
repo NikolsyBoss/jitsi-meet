@@ -1,4 +1,4 @@
-package one.effko.meet;
+package one.efko.meet;
 
 import android.net.Uri;
 import android.util.Log;
@@ -6,8 +6,8 @@ import android.util.Log;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 
-import one.effko.meet.sdk.JitsiMeet;
-import one.effko.meet.sdk.JitsiMeetActivity;
+import one.efko.meet.sdk.JitsiMeet;
+import one.efko.meet.sdk.JitsiMeetActivity;
 
 /**
  * Helper class to initialize Google related services and functionality.

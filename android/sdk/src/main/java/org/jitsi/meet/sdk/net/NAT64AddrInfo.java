@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package one.effko.meet.sdk.net;
+package one.efko.meet.sdk.net;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;

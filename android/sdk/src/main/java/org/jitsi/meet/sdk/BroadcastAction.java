@@ -1,11 +1,11 @@
-package one.effko.meet.sdk;
+package one.efko.meet.sdk;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.facebook.react.bridge.WritableNativeMap;
 
-import one.effko.meet.sdk.log.JitsiMeetLogger;
+import one.efko.meet.sdk.log.JitsiMeetLogger;
 
 import java.util.HashMap;
 
@@ -68,15 +68,15 @@ public class BroadcastAction {
     }
 
     enum Type {
-        SET_AUDIO_MUTED("one.effko.meet.SET_AUDIO_MUTED"),
-        HANG_UP("one.effko.meet.HANG_UP"),
-        SEND_ENDPOINT_TEXT_MESSAGE("one.effko.meet.SEND_ENDPOINT_TEXT_MESSAGE"),
-        TOGGLE_SCREEN_SHARE("one.effko.meet.TOGGLE_SCREEN_SHARE"),
-        RETRIEVE_PARTICIPANTS_INFO("one.effko.meet.RETRIEVE_PARTICIPANTS_INFO"),
-        OPEN_CHAT("one.effko.meet.OPEN_CHAT"),
-        CLOSE_CHAT("one.effko.meet.CLOSE_CHAT"),
-        SEND_CHAT_MESSAGE("one.effko.meet.SEND_CHAT_MESSAGE"),
-        SET_VIDEO_MUTED("one.effko.meet.SET_VIDEO_MUTED");
+        SET_AUDIO_MUTED("one.efko.meet.SET_AUDIO_MUTED"),
+        HANG_UP("one.efko.meet.HANG_UP"),
+        SEND_ENDPOINT_TEXT_MESSAGE("one.efko.meet.SEND_ENDPOINT_TEXT_MESSAGE"),
+        TOGGLE_SCREEN_SHARE("one.efko.meet.TOGGLE_SCREEN_SHARE"),
+        RETRIEVE_PARTICIPANTS_INFO("one.efko.meet.RETRIEVE_PARTICIPANTS_INFO"),
+        OPEN_CHAT("one.efko.meet.OPEN_CHAT"),
+        CLOSE_CHAT("one.efko.meet.CLOSE_CHAT"),
+        SEND_CHAT_MESSAGE("one.efko.meet.SEND_CHAT_MESSAGE"),
+        SET_VIDEO_MUTED("one.efko.meet.SET_VIDEO_MUTED");
 
         private final String action;
 

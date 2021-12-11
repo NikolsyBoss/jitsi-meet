@@ -19,7 +19,7 @@ import JitsiMeetSDK
 
 private enum Constants {
     // the App Group ID value that the app and the broadcast extension targets are setup with. It differs for each app.
-    static let appGroupIdentifier = "group.one.effko.meet.appgroup"
+    static let appGroupIdentifier = "group.one.efko.meet.appgroup"
 }
 
 class SampleHandler: RPBroadcastSampleHandler {

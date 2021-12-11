@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package one.effko.meet.sdk;
+package one.efko.meet.sdk;
 
 import android.app.Activity;
 import android.content.Context;
@@ -30,7 +30,7 @@ import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.module.annotations.ReactModule;
 
-import one.effko.meet.sdk.log.JitsiMeetLogger;
+import one.efko.meet.sdk.log.JitsiMeetLogger;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -117,7 +117,7 @@ class AudioModeModule extends ReactContextBaseJavaModule {
     /**
      * Device change event.
      */
-    private static final String DEVICE_CHANGE_EVENT = "one.effko.meet:features/audio-mode#devices-update";
+    private static final String DEVICE_CHANGE_EVENT = "one.efko.meet:features/audio-mode#devices-update";
 
     /**
      * List of currently available audio devices.

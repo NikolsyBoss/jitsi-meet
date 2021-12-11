@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package one.effko.meet.sdk;
+package one.efko.meet.sdk;
 
 import android.app.Activity;
 
@@ -71,7 +71,7 @@ class ReactInstanceManagerHolder {
                 new PictureInPictureModule(reactContext),
                 new ProximityModule(reactContext),
                 new WiFiStatsModule(reactContext),
-                new one.effko.meet.sdk.net.NAT64AddrInfoModule(reactContext)));
+                new one.efko.meet.sdk.net.NAT64AddrInfoModule(reactContext)));
 
         if (AudioModeModule.useConnectionService()) {
             nativeModules.add(new RNConnectionService(reactContext));

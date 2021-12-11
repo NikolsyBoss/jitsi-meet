@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-package one.effko.meet.sdk;
+package one.efko.meet.sdk;
 
-import one.effko.meet.sdk.log.JitsiMeetLogger;
+import one.efko.meet.sdk.log.JitsiMeetLogger;
 
 class JitsiMeetUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
     private final Thread.UncaughtExceptionHandler defaultUncaughtExceptionHandler;

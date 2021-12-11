@@ -63,8 +63,8 @@
 
 # Jisti Meet SDK
 
--keep class one.effko.meet.** { *; }
--keep class one.effko.meet.sdk.** { *; }
+-keep class one.efko.meet.** { *; }
+-keep class one.efko.meet.sdk.** { *; }
 
 # We added the following when we switched minifyEnabled on. Probably because we
 # ran the app and hit problems...

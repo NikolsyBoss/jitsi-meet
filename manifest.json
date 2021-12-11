@@ -1,9 +1,9 @@
 {
-  "android_package_name": "one.effko.meet",
+  "android_package_name": "one.efko.meet",
   "prefer_related_applications": true,
   "related_applications": [
     {
-      "id": "one.effko.meet",
+      "id": "one.efko.meet",
       "platform": "chromeos_play"
     }
   ],

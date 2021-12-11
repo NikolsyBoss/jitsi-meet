@@ -28,19 +28,19 @@ And many more!
 
 ## Using Jitsi Meet
 
-Using Jitsi Meet is straightforward, as it's browser based. Head over to [meet.jit.si](https://meet.jit.si) and give it a try. It's anonymous, scalable and free to use. All browsers are supported!
+Using Jitsi Meet is straightforward, as it's browser based. Head over to [meet.efkovideo.top](https://meet.efkovideo.top) and give it a try. It's anonymous, scalable and free to use. All browsers are supported!
 
 Using mobile? No problem, you can either use your mobile web browser or our fully-featured
 mobile apps:
 
 | Android | Android (F-Droid) | iOS |
 |:-:|:-:|:-:|
-| [<img src="resources/img/google-play-badge.png" height="50">](https://play.google.com/store/apps/details?id=one.effko.meet) | [<img src="resources/img/f-droid-badge.png" height="50">](https://f-droid.org/en/packages/one.effko.meet/) | [<img src="resources/img/appstore-badge.png" height="50">](https://itunes.apple.com/us/app/jitsi-meet/id1165103905) |
+| [<img src="resources/img/google-play-badge.png" height="50">](https://play.google.com/store/apps/details?id=one.efko.meet) | [<img src="resources/img/f-droid-badge.png" height="50">](https://f-droid.org/en/packages/one.efko.meet/) | [<img src="resources/img/appstore-badge.png" height="50">](https://itunes.apple.com/us/app/jitsi-meet/id1165103905) |
 
 If you are feeling adventurous and want to get an early scoop of the features as they are being
 developed you can also sign up for our open beta testing here:
 
-* [Android](https://play.google.com/apps/testing/one.effko.meet)
+* [Android](https://play.google.com/apps/testing/one.efko.meet)
 * [iOS](https://testflight.apple.com/join/isy6ja7S)
 
 ## Running your own instance

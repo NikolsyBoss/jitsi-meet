@@ -26,7 +26,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>one.effko.meet</string>
+	<string>one.efko.meet</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 </dict>

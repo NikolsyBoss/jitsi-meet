@@ -1,4 +1,4 @@
-package one.effko.meet.sdk;
+package one.efko.meet.sdk;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -19,7 +19,7 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.module.annotations.ReactModule;
 
-import one.effko.meet.sdk.log.JitsiMeetLogger;
+import one.efko.meet.sdk.log.JitsiMeetLogger;
 
 /**
  * The react-native side of Jitsi Meet's {@link ConnectionService}. Exposes
