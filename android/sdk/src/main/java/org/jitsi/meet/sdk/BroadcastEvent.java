@@ -1,11 +1,11 @@
-package org.jitsi.meet.sdk;
+package one.effko.meet.sdk;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.facebook.react.bridge.ReadableMap;
 
-import org.jitsi.meet.sdk.log.JitsiMeetLogger;
+import one.effko.meet.sdk.log.JitsiMeetLogger;
 
 import java.util.HashMap;
 
@@ -75,18 +75,18 @@ public class BroadcastEvent {
     }
 
     public enum Type {
-        CONFERENCE_JOINED("org.jitsi.meet.CONFERENCE_JOINED"),
-        CONFERENCE_TERMINATED("org.jitsi.meet.CONFERENCE_TERMINATED"),
-        CONFERENCE_WILL_JOIN("org.jitsi.meet.CONFERENCE_WILL_JOIN"),
-        AUDIO_MUTED_CHANGED("org.jitsi.meet.AUDIO_MUTED_CHANGED"),
-        PARTICIPANT_JOINED("org.jitsi.meet.PARTICIPANT_JOINED"),
-        PARTICIPANT_LEFT("org.jitsi.meet.PARTICIPANT_LEFT"),
-        ENDPOINT_TEXT_MESSAGE_RECEIVED("org.jitsi.meet.ENDPOINT_TEXT_MESSAGE_RECEIVED"),
-        SCREEN_SHARE_TOGGLED("org.jitsi.meet.SCREEN_SHARE_TOGGLED"),
-        PARTICIPANTS_INFO_RETRIEVED("org.jitsi.meet.PARTICIPANTS_INFO_RETRIEVED"),
-        CHAT_MESSAGE_RECEIVED("org.jitsi.meet.CHAT_MESSAGE_RECEIVED"),
-        CHAT_TOGGLED("org.jitsi.meet.CHAT_TOGGLED"),
-        VIDEO_MUTED_CHANGED("org.jitsi.meet.VIDEO_MUTED_CHANGED");
+        CONFERENCE_JOINED("one.effko.meet.CONFERENCE_JOINED"),
+        CONFERENCE_TERMINATED("one.effko.meet.CONFERENCE_TERMINATED"),
+        CONFERENCE_WILL_JOIN("one.effko.meet.CONFERENCE_WILL_JOIN"),
+        AUDIO_MUTED_CHANGED("one.effko.meet.AUDIO_MUTED_CHANGED"),
+        PARTICIPANT_JOINED("one.effko.meet.PARTICIPANT_JOINED"),
+        PARTICIPANT_LEFT("one.effko.meet.PARTICIPANT_LEFT"),
+        ENDPOINT_TEXT_MESSAGE_RECEIVED("one.effko.meet.ENDPOINT_TEXT_MESSAGE_RECEIVED"),
+        SCREEN_SHARE_TOGGLED("one.effko.meet.SCREEN_SHARE_TOGGLED"),
+        PARTICIPANTS_INFO_RETRIEVED("one.effko.meet.PARTICIPANTS_INFO_RETRIEVED"),
+        CHAT_MESSAGE_RECEIVED("one.effko.meet.CHAT_MESSAGE_RECEIVED"),
+        CHAT_TOGGLED("one.effko.meet.CHAT_TOGGLED"),
+        VIDEO_MUTED_CHANGED("one.effko.meet.VIDEO_MUTED_CHANGED");
 
 
         private static final String CONFERENCE_WILL_JOIN_NAME = "CONFERENCE_WILL_JOIN";

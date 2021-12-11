@@ -1,4 +1,4 @@
-package org.jitsi.meet.sdk;
+package one.effko.meet.sdk;
 
 import java.util.ArrayList;
 import java.util.List;

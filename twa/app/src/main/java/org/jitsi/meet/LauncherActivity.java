@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jitsi.meet;
+package one.effko.meet;
 
 import android.net.Uri;
 
@@ -21,16 +21,16 @@ import android.net.Uri;
 
 public class LauncherActivity
         extends com.google.androidbrowserhelper.trusted.LauncherActivity {
-    
 
-    
+
+
 
     @Override
     protected Uri getLaunchingUrl() {
         // Get the original launch Url.
         Uri uri = super.getLaunchingUrl();
 
-        
+
 
         return uri;
     }
