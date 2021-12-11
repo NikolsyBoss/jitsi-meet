@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.jitsi.meet.sdk;
+package one.effko.meet.sdk;
 
 import android.os.Bundle;
 

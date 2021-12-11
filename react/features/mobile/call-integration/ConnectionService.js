@@ -14,11 +14,11 @@ if (ConnectionService) {
         registerSubscriptions(context, delegate) {
             return [
                 ConnectionService.addListener(
-                    'org.jitsi.meet:features/connection_service#disconnect',
+                    'one.effko.meet:features/connection_service#disconnect',
                     delegate._onPerformEndCallAction,
                     context),
                 ConnectionService.addListener(
-                    'org.jitsi.meet:features/connection_service#abort',
+                    'one.effko.meet:features/connection_service#abort',
                     delegate._onPerformEndCallAction,
                     context)
             ];

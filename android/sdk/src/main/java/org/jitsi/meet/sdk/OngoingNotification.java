@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.jitsi.meet.sdk;
+package one.effko.meet.sdk;
 
-import static org.jitsi.meet.sdk.NotificationChannels.ONGOING_CONFERENCE_CHANNEL_ID;
+import static one.effko.meet.sdk.NotificationChannels.ONGOING_CONFERENCE_CHANNEL_ID;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -29,7 +29,7 @@ import android.os.Build;
 import androidx.annotation.StringRes;
 import androidx.core.app.NotificationCompat;
 
-import org.jitsi.meet.sdk.log.JitsiMeetLogger;
+import one.effko.meet.sdk.log.JitsiMeetLogger;
 
 import java.util.Random;
 

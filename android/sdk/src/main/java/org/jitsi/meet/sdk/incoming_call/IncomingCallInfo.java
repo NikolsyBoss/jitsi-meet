@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.jitsi.meet.sdk.incoming_call;
+package one.effko.meet.sdk.incoming_call;
 
 import androidx.annotation.NonNull;
 
@@ -45,7 +45,7 @@ public class IncomingCallInfo {
 
     /**
      * Gets the caller's avatar URL.
-     * 
+     *
      * @return - The URL as a string.
      */
     public String getCallerAvatarURL() {

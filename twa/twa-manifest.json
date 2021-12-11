@@ -1,5 +1,5 @@
 {
-  "packageId": "org.jitsi.meet",
+  "packageId": "one.effko.meet",
   "host": "meet.jit.si",
   "name": "Jitsi Meet",
   "launcherName": "Jitsi Meet",

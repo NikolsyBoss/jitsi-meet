@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="org.jitsi.meet.sdk">
+    package="one.effko.meet.sdk">
     <!-- XXX ACCESS_NETWORK_STATE is required by WebRTC. -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -48,7 +48,7 @@
         </service>
 
         <service
-            android:name="org.jitsi.meet.sdk.JitsiMeetOngoingConferenceService"
+            android:name="one.effko.meet.sdk.JitsiMeetOngoingConferenceService"
             android:foregroundServiceType="mediaProjection" />
 
         <provider
@@ -61,7 +61,7 @@
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"
             android:exported="false">
-            <meta-data  android:name="org.jitsi.meet.sdk.JitsiInitializer"
+            <meta-data  android:name="one.effko.meet.sdk.JitsiInitializer"
                 android:value="androidx.startup" />
         </provider>
 

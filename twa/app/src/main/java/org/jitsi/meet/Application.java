@@ -13,17 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jitsi.meet;
+package one.effko.meet;
 
 
 
 public class Application extends android.app.Application {
 
-  
+
 
   @Override
   public void onCreate() {
       super.onCreate();
-      
+
   }
 }
