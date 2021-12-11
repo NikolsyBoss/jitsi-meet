@@ -179,19 +179,19 @@ class TestConnectionInfo extends Component<Props, State> {
         return (
             <Fragment accessible = { false } >
                 <TestHint
-                    id = 'one.effko.meet.conference.connectionState'
+                    id = 'one.efko.meet.conference.connectionState'
                     value = { this.props._conferenceConnectionState } />
                 <TestHint
-                    id = 'one.effko.meet.conference.joinedState'
+                    id = 'one.efko.meet.conference.joinedState'
                     value = { this.props._conferenceJoinedState } />
                 <TestHint
-                    id = 'one.effko.meet.conference.grantModeratorAvailable'
+                    id = 'one.efko.meet.conference.grantModeratorAvailable'
                     value = { true } />
                 <TestHint
-                    id = 'one.effko.meet.conference.localParticipantRole'
+                    id = 'one.efko.meet.conference.localParticipantRole'
                     value = { this.props._localUserRole } />
                 <TestHint
-                    id = 'one.effko.meet.stats.rtp'
+                    id = 'one.efko.meet.stats.rtp'
                     value = { JSON.stringify(this.state.stats) } />
             </Fragment>
         );

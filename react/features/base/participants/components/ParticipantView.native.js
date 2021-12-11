@@ -106,7 +106,7 @@ type Props = {
      * The test hint id which can be used to locate the {@code ParticipantView}
      * on the jitsi-meet-torture side. If not provided, the
      * {@code participantId} with the following format will be used:
-     * {@code `one.effko.meet.Participant#${participantId}`}.
+     * {@code `one.efko.meet.Participant#${participantId}`}.
      */
     testHintId: ?string,
 
@@ -206,7 +206,7 @@ class ParticipantView extends Component<Props> {
         const testHintId
             = this.props.testHintId
                 ? this.props.testHintId
-                : `one.effko.meet.Participant#${this.props.participantId}`;
+                : `one.efko.meet.Participant#${this.props.participantId}`;
 
         const renderSharedVideo = _isFakeParticipant && !disableVideo;
 

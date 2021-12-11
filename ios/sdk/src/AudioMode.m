@@ -32,7 +32,7 @@ typedef enum {
 } JitsiMeetAudioMode;
 
 // Events
-static NSString * const kDevicesChanged = @"one.effko.meet:features/audio-mode#devices-update";
+static NSString * const kDevicesChanged = @"one.efko.meet:features/audio-mode#devices-update";
 
 // Device types (must match JS and Java)
 static NSString * const kDeviceTypeHeadphones = @"HEADPHONES";

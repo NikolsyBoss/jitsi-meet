@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package one.effko.meet.sdk;
+package one.efko.meet.sdk;
 
 import android.content.Context;
 import android.media.AudioManager;
@@ -25,7 +25,7 @@ import androidx.annotation.RequiresApi;
 import java.util.HashSet;
 import java.util.Set;
 
-import one.effko.meet.sdk.log.JitsiMeetLogger;
+import one.efko.meet.sdk.log.JitsiMeetLogger;
 
 
 /**

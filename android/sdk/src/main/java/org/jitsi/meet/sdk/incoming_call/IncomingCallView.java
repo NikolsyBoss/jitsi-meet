@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package one.effko.meet.sdk.incoming_call;
+package one.efko.meet.sdk.incoming_call;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -22,8 +22,8 @@ import androidx.annotation.NonNull;
 
 import com.facebook.react.bridge.ReadableMap;
 
-import one.effko.meet.sdk.BaseReactView;
-import one.effko.meet.sdk.ListenerUtils;
+import one.efko.meet.sdk.BaseReactView;
+import one.efko.meet.sdk.ListenerUtils;
 
 import java.lang.reflect.Method;
 import java.util.Map;

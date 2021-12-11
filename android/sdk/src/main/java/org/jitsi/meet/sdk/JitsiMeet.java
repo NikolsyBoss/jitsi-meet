@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package one.effko.meet.sdk;
+package one.efko.meet.sdk;
 
 import android.app.Activity;
 import android.content.Context;
@@ -23,7 +23,7 @@ import android.os.Bundle;
 import com.facebook.react.ReactInstanceManager;
 
 import org.devio.rn.splashscreen.SplashScreen;
-import one.effko.meet.sdk.log.JitsiMeetLogger;
+import one.efko.meet.sdk.log.JitsiMeetLogger;
 
 public class JitsiMeet {
 

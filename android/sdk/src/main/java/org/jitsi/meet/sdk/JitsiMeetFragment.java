@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package one.effko.meet.sdk;
+package one.efko.meet.sdk;
 
 import android.content.Intent;
 import android.os.Bundle;

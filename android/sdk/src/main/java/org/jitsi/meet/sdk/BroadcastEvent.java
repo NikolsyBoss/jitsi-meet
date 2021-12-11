@@ -1,11 +1,11 @@
-package one.effko.meet.sdk;
+package one.efko.meet.sdk;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.facebook.react.bridge.ReadableMap;
 
-import one.effko.meet.sdk.log.JitsiMeetLogger;
+import one.efko.meet.sdk.log.JitsiMeetLogger;
 
 import java.util.HashMap;
 
@@ -75,18 +75,18 @@ public class BroadcastEvent {
     }
 
     public enum Type {
-        CONFERENCE_JOINED("one.effko.meet.CONFERENCE_JOINED"),
-        CONFERENCE_TERMINATED("one.effko.meet.CONFERENCE_TERMINATED"),
-        CONFERENCE_WILL_JOIN("one.effko.meet.CONFERENCE_WILL_JOIN"),
-        AUDIO_MUTED_CHANGED("one.effko.meet.AUDIO_MUTED_CHANGED"),
-        PARTICIPANT_JOINED("one.effko.meet.PARTICIPANT_JOINED"),
-        PARTICIPANT_LEFT("one.effko.meet.PARTICIPANT_LEFT"),
-        ENDPOINT_TEXT_MESSAGE_RECEIVED("one.effko.meet.ENDPOINT_TEXT_MESSAGE_RECEIVED"),
-        SCREEN_SHARE_TOGGLED("one.effko.meet.SCREEN_SHARE_TOGGLED"),
-        PARTICIPANTS_INFO_RETRIEVED("one.effko.meet.PARTICIPANTS_INFO_RETRIEVED"),
-        CHAT_MESSAGE_RECEIVED("one.effko.meet.CHAT_MESSAGE_RECEIVED"),
-        CHAT_TOGGLED("one.effko.meet.CHAT_TOGGLED"),
-        VIDEO_MUTED_CHANGED("one.effko.meet.VIDEO_MUTED_CHANGED");
+        CONFERENCE_JOINED("one.efko.meet.CONFERENCE_JOINED"),
+        CONFERENCE_TERMINATED("one.efko.meet.CONFERENCE_TERMINATED"),
+        CONFERENCE_WILL_JOIN("one.efko.meet.CONFERENCE_WILL_JOIN"),
+        AUDIO_MUTED_CHANGED("one.efko.meet.AUDIO_MUTED_CHANGED"),
+        PARTICIPANT_JOINED("one.efko.meet.PARTICIPANT_JOINED"),
+        PARTICIPANT_LEFT("one.efko.meet.PARTICIPANT_LEFT"),
+        ENDPOINT_TEXT_MESSAGE_RECEIVED("one.efko.meet.ENDPOINT_TEXT_MESSAGE_RECEIVED"),
+        SCREEN_SHARE_TOGGLED("one.efko.meet.SCREEN_SHARE_TOGGLED"),
+        PARTICIPANTS_INFO_RETRIEVED("one.efko.meet.PARTICIPANTS_INFO_RETRIEVED"),
+        CHAT_MESSAGE_RECEIVED("one.efko.meet.CHAT_MESSAGE_RECEIVED"),
+        CHAT_TOGGLED("one.efko.meet.CHAT_TOGGLED"),
+        VIDEO_MUTED_CHANGED("one.efko.meet.VIDEO_MUTED_CHANGED");
 
 
         private static final String CONFERENCE_WILL_JOIN_NAME = "CONFERENCE_WILL_JOIN";

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package one.effko.meet.sdk.log;
+package one.efko.meet.sdk.log;
 
 import timber.log.Timber;
 

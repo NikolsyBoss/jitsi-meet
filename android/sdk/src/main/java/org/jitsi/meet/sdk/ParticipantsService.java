@@ -1,4 +1,4 @@
-package one.effko.meet.sdk;
+package one.efko.meet.sdk;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import com.facebook.react.bridge.WritableMap;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import one.effko.meet.sdk.log.JitsiMeetLogger;
+import one.efko.meet.sdk.log.JitsiMeetLogger;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;

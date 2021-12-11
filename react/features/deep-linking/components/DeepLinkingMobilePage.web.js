@@ -198,7 +198,7 @@ class DeepLinkingMobilePage extends Component<Props> {
         // interfaceConfig.MOBILE_DYNAMIC_LINK check:
         // https://firebase.google.com/docs/dynamic-links/create-manually
         const {
-            APN = 'one.effko.meet',
+            APN = 'one.efko.meet',
             APP_CODE = 'w2atb',
             CUSTOM_DOMAIN = undefined,
             IBI = 'com.atlassian.JitsiMeet.ios',
@@ -206,7 +206,7 @@ class DeepLinkingMobilePage extends Component<Props> {
         } = interfaceConfig.MOBILE_DYNAMIC_LINK || {};
 
         const domain = CUSTOM_DOMAIN ?? `https://${APP_CODE}.app.goo.gl`;
-        const IUS = interfaceConfig.APP_SCHEME || 'one.effko.meet';
+        const IUS = interfaceConfig.APP_SCHEME || 'one.efko.meet';
 
         return `${domain}/?link=${
             encodeURIComponent(window.location.href)}&apn=${

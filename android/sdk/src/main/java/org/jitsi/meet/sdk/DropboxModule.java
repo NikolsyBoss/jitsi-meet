@@ -1,4 +1,4 @@
-package one.effko.meet.sdk;
+package one.efko.meet.sdk;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;

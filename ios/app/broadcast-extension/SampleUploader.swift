@@ -35,7 +35,7 @@ class SampleUploader {
 
     init(connection: SocketConnection) {
         self.connection = connection
-        self.serialQueue = DispatchQueue(label: "one.effko.meet.broadcast.sampleUploader")
+        self.serialQueue = DispatchQueue(label: "one.efko.meet.broadcast.sampleUploader")
 
         setupConnection()
     }

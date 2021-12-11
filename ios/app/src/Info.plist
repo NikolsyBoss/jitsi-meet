@@ -26,10 +26,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>CFBundleURLName</key>
-			<string>one.effko.meet</string>
+			<string>one.efko.meet</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>one.effko.meet</string>
+				<string>one.efko.meet</string>
 			</array>
 		</dict>
 		<dict>
@@ -77,9 +77,9 @@
 		<string>org.jitsi.JitsiMeet.ios.conference</string>
 	</array>
 	<key>RTCAppGroupIdentifier</key>
-	<string>group.one.effko.meet.appgroup</string>
+	<string>group.one.efko.meet.appgroup</string>
 	<key>RTCScreenSharingExtension</key>
-	<string>one.effko.meet.broadcast.extension</string>
+	<string>one.efko.meet.broadcast.extension</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
