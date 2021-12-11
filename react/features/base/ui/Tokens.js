@@ -17,7 +17,7 @@ export const colors = {
     // primary05: '#0056E0',
     primary05: '#2F80ED',
     primary06: '#246FE5',
-    primary07: '#669AEC',
+    primary07: '#549BFA',
     primary08: '#99BBF3',
     primary09: '#CCDDF9',
     primary10: '#17A0DB',
@@ -35,7 +35,7 @@ export const colors = {
     surface09: '#C2C2C2',
     surface10: '#E0E0E0',
     surface11: '#FFF',
-    surface12: '#AAAAAA',
+    surface12: 'rgba(154, 165, 177, .5)',
     surface13: '#495258',
 
     success04: '#189B55',

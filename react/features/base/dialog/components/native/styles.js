@@ -36,6 +36,7 @@ export const bottomSheetStyles = {
     scrollView: {
         paddingHorizontal: 0
     },
+
 	absolute: {
 		position: "absolute",
 		top: 0,
@@ -60,7 +61,10 @@ export const bottomSheetStyles = {
 
     sheetItemContainer: {
         flex: -1
-    }
+    },
+	// buttons : {
+	// 	 color: 'black'
+	// }
 };
 
 export const brandedDialog = {
@@ -211,7 +215,7 @@ ColorSchemeRegistry.register('BottomSheet', {
      * Bottom sheet's base style.
      */
     sheet: {
-        backgroundColor: ColorPalette.darkBackground,
+        backgroundColor: ColorPalette.darkBackground75,
         borderTopLeftRadius: 16,
         borderTopRightRadius: 16
     },
@@ -220,14 +224,14 @@ ColorSchemeRegistry.register('BottomSheet', {
      * Bottom sheet's base style with header.
      */
     sheetHeader: {
-        backgroundColor: ColorPalette.darkBackground,
+        backgroundColor: ColorPalette.darkBackground75,
     },
 
     /**
      * Bottom sheet's background color with footer.
      */
     sheetFooter: {
-        backgroundColor: ColorPalette.darkBackground,
+        backgroundColor: ColorPalette.darkBackground75,
     }
 });
 

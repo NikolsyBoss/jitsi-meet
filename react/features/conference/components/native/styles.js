@@ -167,7 +167,8 @@ export default {
 
   roomNameWrapper: {
     flexDirection: 'row',
-    flex: 1,
+    // flex: 1,
+	  flexShrink: 1,
     marginHorizontal: 5
   },
 

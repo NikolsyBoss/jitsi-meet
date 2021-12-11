@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 const BaseEfcoBg = ({children}) => {
     return (
         <ImageBackground
-            source={require('./bg-chat.png')}
+            source={require('./bg-chat.jpg')}
             resizeMode="cover"
             style={styles.imgBackground}>
 

@@ -11,9 +11,9 @@ export const DRAWER_AVATAR_SIZE = 104;
 
 const DRAWER_HEADER_HEIGHT = 220;
 
-export const SWITCH_THUMB_COLOR = BaseTheme.palette.action04;
+export const SWITCH_THUMB_COLOR = BaseTheme.palette.action01;
 
-export const SWITCH_UNDER_COLOR = BaseTheme.palette.video01Disabled;
+export const SWITCH_UNDER_COLOR = BaseTheme.palette.primary07;
 
 /**
  * The default color of text on the WelcomePage.
@@ -30,7 +30,7 @@ export default {
      * The audio-video switch itself.
      */
     audioVideoSwitch: {
-        marginHorizontal: 5
+        marginHorizontal: 10
     },
 
     /**
@@ -39,7 +39,7 @@ export default {
     audioVideoSwitchContainer: {
         alignItems: 'center',
         flexDirection: 'row',
-        marginRight: BaseTheme.spacing[2]
+        // marginRight: BaseTheme.spacing[2]
     },
 
     /**
@@ -58,8 +58,8 @@ export default {
      */
     button: {
         backgroundColor: '#2F80ED',
-        borderColor: BaseTheme.palette.screen01Header,
-        borderRadius: 4,
+        // borderColor: BaseTheme.palette.screen01Header,
+        borderRadius: 6,
         // borderWidth: 1,
         height: 41,
         justifyContent: 'center',
@@ -219,7 +219,7 @@ export default {
      * The container of the label of the audio-video switch.
      */
     switchLabel: {
-        paddingHorizontal: 3
+        paddingHorizontal: 5
     },
 
     /**
@@ -268,19 +268,19 @@ export default {
      * The style of the top-level container of {@code WelcomePage}.
      */
     welcomePage: {
-        backgroundColor: BaseTheme.palette.uiBackground,
+        // backgroundColor: BaseTheme.palette.uiBackground,
         flex: 1,
         overflow: 'hidden'
     },
 
     recentList: {
-        backgroundColor: BaseTheme.palette.uiBackground,
+        // backgroundColor: BaseTheme.palette.uiBackground,
         flex: 1,
         overflow: 'hidden'
     },
 
     recentListDisabled: {
-        backgroundColor: BaseTheme.palette.uiBackground,
+        // backgroundColor: BaseTheme.palette.uiBackground,
         flex: 1,
         opacity: 0.8,
         overflow: 'hidden'

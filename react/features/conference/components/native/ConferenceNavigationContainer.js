@@ -57,8 +57,8 @@ const ConferenceStack = createStackNavigator();
 const EfcoHeadChat = () => {
 
 	const localParticipant = useSelector(getLocalParticipant);
-	// const displayName = useSelector(getParticipantDisplayName());
-
+	// const displayName = useSelector(getParticipantDisplayName(localParticipant?.id));
+	const displayName = localParticipant?.name;
 	return (
 		<View style={styles.efcoHeadContainer}>
 			{/*<Image style={styles.efcoHeaderAvatar} source={{*/}
@@ -69,7 +69,7 @@ const EfcoHeadChat = () => {
 				// displayName={displayName}
 				participantId={localParticipant.id}
 				size={40}/>
-			<Text style={styles.efcoHeadText}> {'displayName'}</Text>
+			<Text style={styles.efcoHeadText}> {displayName}</Text>
 		</View>
 	)
 };

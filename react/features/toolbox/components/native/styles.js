@@ -3,7 +3,7 @@
 import {ColorSchemeRegistry, schemeColor} from '../../../base/color-scheme';
 import {BoxModel, ColorPalette} from '../../../base/styles';
 
-const BUTTON_SIZE = 48;
+const BUTTON_SIZE = 44;
 
 // Toolbox, toolbar:
 
@@ -19,7 +19,8 @@ const toolbarButton = {
   justifyContent: 'center',
   marginHorizontal: 6,
   marginTop: 6,
-  width: BUTTON_SIZE
+  width: BUTTON_SIZE,
+
 };
 
 /**
@@ -28,7 +29,7 @@ const toolbarButton = {
 const toolbarButtonIcon = {
   alignSelf: 'center',
   color: ColorPalette.darkGrey,
-  fontSize: 32
+  fontSize: 36
 };
 
 
@@ -83,13 +84,14 @@ const styles = {
   toolbox: {
     alignItems: 'center',
     backgroundColor: ColorPalette.darkBackground,
-    // borderTopLeftRadius: 3,
-    // borderTopRightRadius: 3,
+    borderTopLeftRadius: 3,
+    borderTopRightRadius: 3,
     flexDirection: 'row',
     flexGrow: 0,
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     paddingHorizontal: BoxModel.margin,
-    paddingVertical: 8,
+    paddingTop: 10,
+    paddingBottom: 20,
   },
 
   /**
@@ -134,7 +136,7 @@ ColorSchemeRegistry.register('Toolbox', {
   hangupButtonStyles: {
     iconStyle: {
 		 ...whiteToolbarButtonIcon,
-		 fontSize: 36
+		 fontSize: 40
 	 },
 
     style: {
