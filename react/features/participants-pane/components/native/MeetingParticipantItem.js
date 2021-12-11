@@ -189,7 +189,7 @@ function mapStateToProps(state, ownProps): Object {
 	return {
 		_audioMediaState: audioMediaState,
 		_disableModeratorIndicator: disableModeratorIndicator,
-		_displayName:  { displayName }(state, participant?.id),
+		_displayName: getParticipantDisplayName(state, participant?.id),
 		_isAudioMuted,
 		_isFakeParticipant: Boolean(participant?.isFakeParticipant),
 		_isModerator: isParticipantModerator(participant),
