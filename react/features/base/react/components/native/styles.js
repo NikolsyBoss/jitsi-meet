@@ -130,7 +130,7 @@ const SECTION_LIST_STYLES = {
 	},
 
 	listItem: {
-		backgroundColor: ColorPalette.darkBackground,
+		backgroundColor: ColorPalette.efcoGrey,
 		borderRadius: 6,
 		alignItems: 'center',
 		flex: 1,

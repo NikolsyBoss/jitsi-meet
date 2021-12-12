@@ -2,12 +2,12 @@
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {Image, View, Text} from 'react-native';
+import {Image, View, Text, NativeModules} from 'react-native';
 
 import {Chat, ChatAndPolls} from '../../../chat';
 import {SharedDocument} from '../../../etherpad';
@@ -37,7 +37,7 @@ import {
 	getParticipantCount,
 	getParticipantCountWithFake,
 	getParticipantDisplayName,
-	getRemoteParticipants
+	getRemoteParticipants, setLoadableAvatarUrl
 } from "../../../base/participants";
 import BaseTheme from "../../../base/ui/components/BaseTheme";
 import {Avatar} from "../../../base/avatar";
@@ -57,17 +57,23 @@ const ConferenceStack = createStackNavigator();
 const EfcoHeadChat = () => {
 
 	const localParticipant = useSelector(getLocalParticipant);
-	// const displayName = useSelector(getParticipantDisplayName(localParticipant?.id));
+
+	// const {AppInfo} = NativeModules;
+	// const {avatar} = AppInfo.getConstants()
+	// const dispatch = useDispatch()
+	//
+	// useEffect(() => {
+	// 	dispatch(setLoadableAvatarUrl(localParticipant?.id, avatar))
+	// }, [])
+
 	const displayName = localParticipant?.name;
+
 	return (
 		<View style={styles.efcoHeadContainer}>
-			{/*<Image style={styles.efcoHeaderAvatar} source={{*/}
-			{/*	uri: 'https://placeimg.com/640/480/people/sepia',*/}
-			{/*}}/>*/}
 			<Avatar
 				className='participant-avatar'
 				// displayName={displayName}
-				participantId={localParticipant.id}
+				participantId={localParticipant?.id}
 				size={40}/>
 			<Text style={styles.efcoHeadText}> {displayName}</Text>
 		</View>

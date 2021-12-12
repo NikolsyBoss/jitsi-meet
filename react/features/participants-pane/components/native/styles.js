@@ -124,7 +124,7 @@ export default {
         alignItems: 'center',
         // borderBottomColor: BaseTheme.palette.field01Hover,
         // borderBottomWidth: 2,
-        backgroundColor: ColorPalette.darkBackground,
+        backgroundColor: ColorPalette.efcoGrey,
         // display: 'flex',
         flexDirection: 'row',
         height: BaseTheme.spacing[9],

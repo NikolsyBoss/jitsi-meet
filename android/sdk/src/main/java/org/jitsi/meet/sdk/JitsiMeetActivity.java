@@ -86,13 +86,13 @@ public class JitsiMeetActivity extends AppCompatActivity
 
 		Bundle extras = getIntent().getExtras();
 
-//        if(extras != null) {
-//            name = extras.getString("name", "Nikolay Wilosn");
-//            email = extras.getString("email", "mikolaXd@gmail.com");
-//            image = extras.getString("image", "https://api.efkovideo.top/media/accounts/profiles/default.png");
-//        }else{
-//            finish();
-//        }
+        if(extras != null) {
+            name = extras.getString("name", "");
+            email = extras.getString("email", "");
+            image = extras.getString("image", "");
+        }else{
+            finish();
+        }
 
 		if (!extraInitialize()) {
 			initialize();

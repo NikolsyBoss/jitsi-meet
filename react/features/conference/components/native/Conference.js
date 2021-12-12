@@ -49,6 +49,10 @@ import Chat from "../../../chat/components/native/Chat";
 import AddPeopleDialog
 	from "../../../invite/components/add-people-dialog/native/AddPeopleDialog";
 import BaseEfcoBg from "../../../efcoBase/bg/BaseEfcoBG";
+import {
+	getLocalParticipant,
+	setLoadableAvatarUrl
+} from "../../../base/participants";
 
 
 /**
@@ -148,6 +152,12 @@ class Conference extends AbstractConference<Props, *> {
 	 * @returns {void}
 	 */
 	componentDidMount() {
+		const {dispatch,_localParticipant} = this.props
+		// console.log('_localParticipant',_localParticipant);
+		const {AppInfo} = NativeModules;
+		const {avatar} = AppInfo.getConstants()
+
+		dispatch(setLoadableAvatarUrl(_localParticipant.id, avatar))
 		BackButtonRegistry.addListener(this._onHardwareBackPress);
 	}
 
@@ -460,7 +470,8 @@ function _mapStateToProps(state) {
 		_pictureInPictureEnabled: getFeatureFlag(state, PIP_ENABLED),
 		_reducedUI: reducedUI,
 		_showLobby: getIsLobbyVisible(state),
-		_toolboxVisible: isToolboxVisible(state)
+		_toolboxVisible: isToolboxVisible(state),
+		_localParticipant: getLocalParticipant(state)
 	};
 }
 

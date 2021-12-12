@@ -154,14 +154,15 @@ export default class StatelessAvatar extends AbstractStatelessAvatar<Props> {
      */
     _renderURLAvatar() {
         const {onAvatarLoadError, size, url} = this.props;
-        const {AppInfo} = NativeModules;
-        return (
+       //  const {AppInfo} = NativeModules;
+		 // console.log('avatar',AppInfo.avatar);
+		 return (
             <Image
                 defaultSource={DEFAULT_AVATAR}
                 onError={onAvatarLoadError}
                 resizeMode='cover'
-                // source = {{ uri: url }}
-                source={{uri: AppInfo.avatar}}
+                source = {{ uri: url }}
+                // source={{uri: AppInfo.avatar}}
                 style={styles.avatarContent(size)}/>
         );
     }

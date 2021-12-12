@@ -1,7 +1,7 @@
 // @flow
 
 import {DrawerActions} from '@react-navigation/native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
 	Animated,
 	SafeAreaView, StatusBar,
@@ -42,6 +42,11 @@ import SettingMenuButton
 	from "../../toolbox/components/native/SettingMenuButton";
 import BaseEfcoBg from "../../efcoBase/bg/BaseEfcoBG";
 import {ColorPalette} from "../../base/styles";
+import {
+	getLocalParticipant, getParticipantById, SET_LOADABLE_AVATAR_URL,
+	setLoadableAvatarUrl
+} from "../../base/participants";
+import {useSelector} from "react-redux";
 
 
 type Props = AbstractProps & {
@@ -76,6 +81,8 @@ type Props = AbstractProps & {
  *
  * @augments AbstractWelcomePage
  */
+
+
 class WelcomePage extends AbstractWelcomePage<*> {
 
 	/**
@@ -141,10 +148,12 @@ class WelcomePage extends AbstractWelcomePage<*> {
 		super.componentDidMount();
 		let randomStr = (Math.random() + 1).toString(36).substring(1);
 		this.sha256(randomStr).then(hash => this.setState({room: hash}));
-		const {AppInfo} = NativeModules;
+		// const {AppInfo} = NativeModules;
 		// const name = getStaticName()
-		const {get} = AppInfo.getConstants()
-		console.log('NATIVE MODEULE', AppInfo.getConstants())
+		// const {avatar} = AppInfo.getConstants()
+		// const localParticipant = useSelector(getLocalParticipant);
+		// this.setLoadableAvatarUrl(localParticipant?.id, avatar)
+		// console.log('NATIVE MODEULE', AppInfo.getConstants())
 		this._updateRoomname();
 
 		const {
@@ -212,6 +221,7 @@ class WelcomePage extends AbstractWelcomePage<*> {
 			 return this._renderReducedUI();
 		}
 		*/
+
 
 		return this._renderFullUI();
 	}
@@ -380,8 +390,19 @@ class WelcomePage extends AbstractWelcomePage<*> {
 
 	_renderFullUI() {
 
-		const roomnameAccLabel = 'welcomepage.accessibilityLabel.roomname';
-		const {t} = this.props;
+		// const roomnameAccLabel = 'welcomepage.accessibilityLabel.roomname';
+		// const {t} = this.props;
+
+
+		// const {AppInfo} = NativeModules;
+		// const {avatar} = AppInfo.getConstants()
+		// const local = getParticipantById('local')
+		// console.log('local',this.props.local);
+		// console.log('local',local);
+		// const localParticipant = getLocalParticipant
+
+		// setLoadableAvatarUrl('local', avatar)
+		// console.log('local',this.props.local);
 
 
 		return (
@@ -397,43 +418,43 @@ class WelcomePage extends AbstractWelcomePage<*> {
 				<View style={styles.welcomePage}>
 					{/*<SafeAreaView style={styles.roomContainer}>*/}
 					{/*	<View style={styles.joinControls}>*/}
-							{/*<Text style={styles.enterRoomText}>*/}
-							{/*    {t('welcomepage.roomname')}*/}
-							{/*</Text>*/}
-							{/* // $FlowExpectedError*/}
+					{/*<Text style={styles.enterRoomText}>*/}
+					{/*    {t('welcomepage.roomname')}*/}
+					{/*</Text>*/}
+					{/* // $FlowExpectedError*/}
 
-							{/*<Text numberOfLines={1}*/}
-							{/*      style={[styles.textInput]}>*/}
-							{/*    {this.state.roomName}*/}
-							{/*</Text>*/}
+					{/*<Text numberOfLines={1}*/}
+					{/*      style={[styles.textInput]}>*/}
+					{/*    {this.state.roomName}*/}
+					{/*</Text>*/}
 
-							{/*<TextInput*/}
-							{/*    accessibilityLabel={t(roomnameAccLabel)}*/}
-							{/*    autoCapitalize={'none'}*/}
-							{/*    autoComplete={'off'}*/}
-							{/*    autoCorrect={false}*/}
-							{/*    autoFocus={false}*/}
-							{/*    onBlur={this._onFieldBlur}*/}
-							{/*    // onChangeText={this._onRoomChange}*/}
-							{/*    onFocus={this._onFieldFocus}*/}
-							{/*    // onSubmitEditing={this._onJoin}*/}
-							{/*    placeholder={this.state.roomPlaceholder}*/}
-							{/*    placeholderTextColor={PLACEHOLDER_TEXT_COLOR}*/}
-							{/*    returnKeyType={'go'}*/}
-							{/*    spellCheck={false}*/}
-							{/*    style={styles.textInput}*/}
-							{/*    underlineColorAndroid='transparent'*/}
-							{/*    value={this.state.roomName}*/}
-							{/*/>*/}
-							{
+					{/*<TextInput*/}
+					{/*    accessibilityLabel={t(roomnameAccLabel)}*/}
+					{/*    autoCapitalize={'none'}*/}
+					{/*    autoComplete={'off'}*/}
+					{/*    autoCorrect={false}*/}
+					{/*    autoFocus={false}*/}
+					{/*    onBlur={this._onFieldBlur}*/}
+					{/*    // onChangeText={this._onRoomChange}*/}
+					{/*    onFocus={this._onFieldFocus}*/}
+					{/*    // onSubmitEditing={this._onJoin}*/}
+					{/*    placeholder={this.state.roomPlaceholder}*/}
+					{/*    placeholderTextColor={PLACEHOLDER_TEXT_COLOR}*/}
+					{/*    returnKeyType={'go'}*/}
+					{/*    spellCheck={false}*/}
+					{/*    style={styles.textInput}*/}
+					{/*    underlineColorAndroid='transparent'*/}
+					{/*    value={this.state.roomName}*/}
+					{/*/>*/}
+					{
 
-								// $FlowExpectedError
-								// this._renderInsecureRoomNameWarning()
-							}
+						// $FlowExpectedError
+						// this._renderInsecureRoomNameWarning()
+					}
 
-							{
-								// this._renderHintBox()
-							}
+					{
+						// this._renderHintBox()
+					}
 					{/*	</View>*/}
 					{/*</SafeAreaView>*/}
 					{/* // $FlowExpectedError*/}
@@ -445,6 +466,7 @@ class WelcomePage extends AbstractWelcomePage<*> {
 			</BaseEfcoBg>
 		);
 	}
+
 
 	/**
 	 * Renders a "reduced" version of the welcome page.
@@ -471,13 +493,14 @@ class WelcomePage extends AbstractWelcomePage<*> {
  * @returns {Object}
  */
 function _mapStateToProps(state) {
+
 	return {
 		..._abstractMapStateToProps(state),
-		_headerStyles: ColorSchemeRegistry.get(state, 'Header')
-
+		_headerStyles: ColorSchemeRegistry.get(state, 'Header'),
 		// _reducedUI: state['features/base/responsive-ui'].reducedUI
 	};
 }
+
 
 export default translate(connect(_mapStateToProps)(WelcomePage));
 const HEADER: ViewStyle = {

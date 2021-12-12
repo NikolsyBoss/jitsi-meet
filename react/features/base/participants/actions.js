@@ -549,6 +549,7 @@ export function pinParticipant(id) {
  * }}
 */
 export function setLoadableAvatarUrl(participantId, url) {
+	// console.log('setLoadableAvatarUrl',participantId, url)
     return {
         type: SET_LOADABLE_AVATAR_URL,
         participant: {

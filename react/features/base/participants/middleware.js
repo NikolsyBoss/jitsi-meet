@@ -61,6 +61,7 @@ import {
 import { PARTICIPANT_JOINED_FILE, PARTICIPANT_LEFT_FILE } from './sounds';
 
 import { hasRaisedHand, raiseHand } from '.';
+import {NativeModules} from "react-native";
 
 declare var APP: Object;
 
@@ -484,7 +485,7 @@ function _participantJoinedOrUpdated(store, next, action) {
 
             getFirstLoadableAvatarUrl(updatedParticipant, store)
                 .then(url => {
-                    dispatch(setLoadableAvatarUrl(participantId, url));
+						 if (url) dispatch(setLoadableAvatarUrl(participantId, url));
                 });
         }
     }

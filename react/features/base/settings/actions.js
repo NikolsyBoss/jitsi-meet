@@ -22,7 +22,7 @@ import { SETTINGS_UPDATED } from './actionTypes';
  * }}
  */
 export function updateSettings(settings) {
-    return {
+	return {
         type: SETTINGS_UPDATED,
         settings
     };
