@@ -19,7 +19,7 @@ export const ColorPalette = {
 	 */
 	black: BLACK,
 	blackBlue: 'rgb(0, 3, 6)',
-	blue: '#17A0DB',
+	blue: '#2F80ED',
 	blueHighlight: '#1081b2',
 	buttonUnderlay: '#495258',
 	darkGrey: '#555555',
@@ -37,6 +37,7 @@ export const ColorPalette = {
 	white: '#FFFFFF',
 
 	efcoPurple: '#8285F2',
+	efcoModalBG: 'rgba(29,30,35,.8)',
 
 	/**
 	 * These are colors from the atlaskit to be used on mobile, when needed.

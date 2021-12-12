@@ -60,11 +60,10 @@ export const bottomSheetStyles = {
     },
 
     sheetItemContainer: {
-        flex: -1
+        flex: -1,
+		 paddingVertical: 15
     },
-	// buttons : {
-	// 	 color: 'black'
-	// }
+
 };
 
 export const brandedDialog = {
@@ -134,7 +133,8 @@ export const brandedDialog = {
  * Reusable (colored) style for text in any branded dialogs.
  */
 const brandedDialogText = {
-    color: schemeColor('text'),
+    // color: schemeColor('text'),
+    color: ColorPalette.white,
     fontSize: MD_FONT_SIZE,
     textAlign: 'center'
 };
@@ -154,7 +154,7 @@ const brandedDialogItemContainerStyle = {
 
 const brandedDialogIconStyle = {
     color: ColorPalette.white,
-    fontSize: 24
+    fontSize: 32
 };
 
 export const inputDialog = {
@@ -264,7 +264,7 @@ ColorSchemeRegistry.register('Dialog', {
      */
     closeStyle: {
         color: schemeColor('icon'),
-        fontSize: MD_FONT_SIZE
+        fontSize: 25
     },
 
     /**
@@ -272,10 +272,11 @@ ColorSchemeRegistry.register('Dialog', {
      */
     dialog: {
         alignItems: 'stretch',
-        backgroundColor: schemeColor('background'),
-        borderColor: schemeColor('border'),
+        // backgroundColor: schemeColor('background'),
+        backgroundColor: ColorPalette.darkBackground75,
+        // borderColor: schemeColor('border'),
         borderRadius: BORDER_RADIUS,
-        borderWidth: 1,
+        // borderWidth: 1,
         flex: 1,
         flexDirection: 'column',
         maxWidth: PREFERRED_DIALOG_SIZE

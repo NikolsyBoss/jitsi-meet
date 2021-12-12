@@ -16,11 +16,11 @@ export const colors = {
     primary04: '#0045B3',
     // primary05: '#0056E0',
     primary05: '#2F80ED',
-    primary06: '#246FE5',
+    primary06: '#4A97FF',
     primary07: '#549BFA',
     primary08: '#99BBF3',
     primary09: '#CCDDF9',
-    primary10: '#17A0DB',
+    primary10: '#2F80ED',
     primary11: '#1081B2',
 
     surface00: '#111111',
@@ -188,7 +188,7 @@ export const colorMap = {
     field01Disabled: 'surface05',
 
     // Background for high-contrast input fields
-    field02: 'surface11',
+    field02: 'primary06',
 
     // Color for the section divider
     dividerColor: 'surface12',
@@ -267,7 +267,9 @@ export const colorMap = {
     support09: 'support09',
 
     // Used for avatars and raise hand badge
-    support07: 'support07'
+    support07: 'support07',
+
+	efcoSwitchTrackColor: 'rgba(84, 155, 250, .5)',
 };
 
 

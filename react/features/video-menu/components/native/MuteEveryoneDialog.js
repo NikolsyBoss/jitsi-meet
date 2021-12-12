@@ -14,6 +14,10 @@ import AbstractMuteEveryoneDialog, {
     type Props as AbstractProps } from '../AbstractMuteEveryoneDialog';
 
 import styles from './styles';
+import {
+	THUMB_COLOR
+} from "../../../welcome/components/settings/components/styles";
+import {colorMap as palette} from "../../../base/ui/Tokens";
 
 type Props = AbstractProps & {
 
@@ -71,6 +75,8 @@ class MuteEveryoneDialog extends AbstractMuteEveryoneDialog<Props> {
                             {this.props.t('dialog.moderationAudioLabel')}
                         </Text>
                         <Switch
+									thumbColor={!this.state.audioModerationEnabled ? THUMB_COLOR : 'white'}
+									trackColor={{true: palette.efcoSwitchTrackColor, false: 'grey'}}
                             onValueChange = { this._onToggleModeration }
                             value = { !this.state.audioModerationEnabled } />
                     </View>

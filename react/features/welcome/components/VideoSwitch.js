@@ -10,6 +10,8 @@ import {connect} from '../../base/redux';
 import {updateSettings} from '../../base/settings';
 
 import styles, {SWITCH_THUMB_COLOR, SWITCH_UNDER_COLOR} from './styles';
+import {THUMB_COLOR} from "./settings/components/styles";
+import {colorMap as palette} from "../../base/ui/Tokens";
 
 /**
  * The type of the React {@code Component} props of {@link VideoSwitch}.
@@ -76,8 +78,8 @@ class VideoSwitch extends Component<Props> {
 				<Switch
 					onValueChange={this._onStartAudioOnlyChange}
 					style={styles.audioVideoSwitch}
-					thumbColor={SWITCH_THUMB_COLOR}
-					trackColor={{true: SWITCH_UNDER_COLOR}}
+					thumbColor={_settings.startAudioOnly ? THUMB_COLOR : 'white'}
+					trackColor={{true: palette.efcoSwitchTrackColor, false: 'grey'}}
 					value={_settings.startAudioOnly}/>
 				<TouchableWithoutFeedback
 					onPress={this._onStartAudioOnlyTrue}>
